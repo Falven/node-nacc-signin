@@ -3,3 +3,22 @@
 @import "reset";
 
 @import "keypad";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+article {
+  text-align: center;
+  > h1 {
+    font-size: 32pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin: 50px;
+  }
+  > p {
+    font-size: 18pt;
+    font-weight: 300;
+    margin: 25px;
+  }
+}

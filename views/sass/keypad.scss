@@ -1,15 +1,27 @@
-
-
+$fg-color: #FFF;
+$bg-color: #323B40;
+$accent-color: #FF6A46;
 
 .keys {
-  width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: nowrap;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 17.5%;
+}
+
+.screen, .key {
+  color: $fg-color;
+  background-color: $bg-color;
+}
+
+.screen {
+  height: 5%;
 }
 
 .key {
   width: 25%;
-  margin: auto;
+  margin: 5px;
+  padding: 10% 0;
+  border: solid 1px $accent-color;
+  cursor: pointer;
 }
