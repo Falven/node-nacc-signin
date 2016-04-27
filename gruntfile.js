@@ -163,7 +163,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'express:dev',
-        'open:dev',
+        // 'open:dev',
         'watch'
     ]);
     grunt.registerTask('dev', [
@@ -185,7 +185,7 @@ module.exports = function (grunt) {
     grunt.registerTask('server', [
         'dist',
         'express:dist',
-        'open:dist',
+        // 'open:dist',
         'keepalive'
     ]);
 };
