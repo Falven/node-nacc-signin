@@ -1,5 +1,10 @@
 section#keypad
-  p.screen= 0
-  .keys
-    each val, index in ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reset', '0', 'Enter' ]
-      div(class='key kp_' + val)= val
+  form(action="", method="post")
+    p Please enter your CSU Student ID to sign-in
+    .display
+    .keys
+      each val, index in ['1', '2', '3', '4', '5', '6', '7', '8', '9' ]
+        input.key.numeric(type="button", class="kp_" + index, value=val)
+      input.key.reset.kp_9(type="button", value="Reset")
+      input.key.numeric.kp_10(type="button", value="0")
+      input.key.enter.kp_11(type="submit", value="Enter")

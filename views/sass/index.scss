@@ -2,23 +2,46 @@
 
 @import "reset";
 
-@import "keypad";
+@import "media";
 
+$line-height: 1.7;
 body {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   font-family: 'Open Sans', sans-serif;
+  font-size: 10pt;
+  color: #222;
+  line-height: $line-height;
+  letter-spacing: 0;
 }
 
-article {
+#title {
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
   > h1 {
-    font-size: 32pt;
+    font-size: 22pt;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    margin: 50px;
   }
-  > p {
-    font-size: 18pt;
-    font-weight: 300;
-    margin: 25px;
+  > h2 {
+    font-size: 14pt;
+    margin: 10px 0;
+  }
+}
+
+@import "keypad";
+
+@include respond-min("tablet") {
+  #keypad > form {
+    width: 35%;
+  }
+}
+
+@include respond-min("laptop") {
+  #keypad > form {
+    width: 55%;
   }
 }

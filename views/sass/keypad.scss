@@ -1,27 +1,69 @@
+$button-rows: 4;
+$button-cols: 3;
 $fg-color: #FFF;
 $bg-color: #323B40;
-$accent-color: #FF6A46;
+$accent-color: #01674D;
+$selected-color: $accent-color;
+
+#keypad {
+  > form {
+    width: 85%;
+    margin: auto;
+    > p {
+      margin: auto;
+    }
+  }
+}
+
+.display, .key {
+  font-size: 14pt;
+  color: $fg-color;
+  background-color: $bg-color;
+  border: solid 1px $accent-color;
+}
+
+.display {
+  text-align: left;
+  margin: auto;
+  //padding: 1%;
+  min-height: #{$line-height + .1 + "em"};
+}
 
 .keys {
+  text-align: center;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 17.5%;
+  margin: auto;
 }
 
-.screen, .key {
-  color: $fg-color;
-  background-color: $bg-color;
-}
-
-.screen {
-  height: 5%;
-}
-
+$width: 33;
+$height: 9%;
 .key {
-  width: 25%;
-  margin: 5px;
-  padding: 10% 0;
-  border: solid 1px $accent-color;
+  appearance: none;
+  width: #{$width + '%'};
+  padding: #{$height};
+  border-radius: 0;
   cursor: pointer;
+}
+
+.key:active {
+  background-color: $selected-color;
+}
+
+$button-margin: ((100 - $width * $button-cols) / 2) + '%';
+$button-count: $button-rows * $button-cols;
+@for $i from 0 to $button-count {
+  $row: floor($i / $button-cols);
+  $col: floor($i - $row * $button-cols);
+  .kp_#{$i} {
+    @if $col == 0 {
+      margin-right: #{$button-margin};
+    } @else {
+      @if $col == $button-cols - 1 {
+        margin-left: #{$button-margin};
+      }
+    }
+    margin-top: #{$button-margin};
+  }
 }
