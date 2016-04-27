@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'NACC' });
+  res.render('index', {
+    title: 'NACC',
+    description: 'NACC Student Login Website.',
+    keywords: 'CSU, NACC, Tutoring, Mentoring'
+  });
+  next();
 });
 
 module.exports = router;
