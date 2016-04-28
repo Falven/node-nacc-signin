@@ -1,0 +1,21 @@
+#reason {
+  #peers {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .reason {
+    width: 30%;
+    > input {
+      width: 100%;
+      padding: 20%;
+    }
+  }
+}

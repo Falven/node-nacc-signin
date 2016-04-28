@@ -1,10 +1,11 @@
-extends layout
+extends head
 
 block content
-  main
-    article
-      section#title
-        h1= title
-        h2 Welcome to the Tutoring Center
-      - var instructions = 'Please enter your Admin Pin:'
-      include keypad
+  body#admin
+    main
+      article
+        section#title
+          h1= title
+          h2 Welcome to the Tutoring Center
+        include keypad
+        +keypad('', 'post', 'Please enter your Admin Pin:')

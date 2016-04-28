@@ -1,10 +1,11 @@
-extends layout
+extends head
 
 block content
-  main
-    article
-      section#title
-        h1= title
-        h2 Welcome to the Tutoring Center
-      - var instructions = 'Please enter your CSU Student ID to sign-in:'
-      include keypad
+  body#index
+    main
+      article
+        header#title
+          h1= title
+          h2 Welcome to the Tutoring Center
+        include keypad
+        +keypad('reason', 'post', error ? 'An invalid CSU student ID was entered, please try again:' : 'Please enter your CSU Student ID to log in:')

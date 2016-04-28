@@ -4,7 +4,13 @@
 
 @import "media";
 
+$fg-color: #FFF;
+$bg-color: #323B40;
+$accent-color: #01674D;
+$selected-color: $accent-color;
+$error-color: red;
 $line-height: 1.7;
+
 body {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,17 +28,42 @@ body {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 25px;
-  > h1 {
-    font-size: 22pt;
-    font-family: 'Montserrat', sans-serif;
-  }
-  > h2 {
-    font-size: 14pt;
-    margin: 10px 0;
-  }
+}
+
+h1 {
+  font-size: 22pt;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 14pt;
+  margin: 10px 0;
+}
+
+input[type="button"], input[type="text"], input[type="submit"] {
+  font-size: 14pt;
+  color: $fg-color;
+  background-color: $bg-color;
+  border: solid 1px $accent-color;
+}
+
+input[type="button"] {
+  appearance: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+input[type="button"]:active {
+  background-color: $selected-color;
+}
+
+.error {
+  color: $error-color;
 }
 
 @import "keypad";
+
+@import "reason";
 
 @include respond-min("tablet") {
   #keypad > form {

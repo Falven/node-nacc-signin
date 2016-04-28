@@ -1,69 +1,53 @@
-$button-rows: 4;
-$button-cols: 3;
-$fg-color: #FFF;
-$bg-color: #323B40;
-$accent-color: #01674D;
-$selected-color: $accent-color;
-
 #keypad {
+  $button-rows: 4;
+  $button-cols: 3;
+
+  > label {
+    margin: auto;
+  }
+
   > form {
     width: 85%;
     margin: auto;
-    > p {
-      margin: auto;
-    }
   }
-}
 
-.display, .key {
-  font-size: 14pt;
-  color: $fg-color;
-  background-color: $bg-color;
-  border: solid 1px $accent-color;
-}
+  .display {
+    width: 100%;
+    text-align: left;
+    margin: auto;
+    padding-left: 5px;
+    min-height: #{$line-height + .1 + "em"};
+  }
 
-.display {
-  text-align: left;
-  margin: auto;
-  //padding: 1%;
-  min-height: #{$line-height + .1 + "em"};
-}
+  .keys {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+  }
 
-.keys {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: auto;
-}
+  $width: 33;
+  $height: 9%;
+  .key {
+    width: #{$width + '%'};
+    padding: #{$height};
+  }
 
-$width: 33;
-$height: 9%;
-.key {
-  appearance: none;
-  width: #{$width + '%'};
-  padding: #{$height};
-  border-radius: 0;
-  cursor: pointer;
-}
-
-.key:active {
-  background-color: $selected-color;
-}
-
-$button-margin: ((100 - $width * $button-cols) / 2) + '%';
-$button-count: $button-rows * $button-cols;
-@for $i from 0 to $button-count {
-  $row: floor($i / $button-cols);
-  $col: floor($i - $row * $button-cols);
-  .kp_#{$i} {
-    @if $col == 0 {
-      margin-right: #{$button-margin};
-    } @else {
-      @if $col == $button-cols - 1 {
-        margin-left: #{$button-margin};
+  $button-margin: ((100 - $width * $button-cols) / 2) + '%';
+  $button-count: $button-rows * $button-cols;
+  @for $i from 0 to $button-count {
+    $row: floor($i / $button-cols);
+    $col: floor($i - $row * $button-cols);
+    .kp_#{$i} {
+      @if $col == 0 {
+        margin-right: #{$button-margin};
+      } @else {
+        @if $col == $button-cols - 1 {
+          margin-left: #{$button-margin};
+        }
       }
+      margin-top: #{$button-margin};
     }
-    margin-top: #{$button-margin};
   }
 }

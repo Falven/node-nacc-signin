@@ -1,0 +1,32 @@
+
+.peers {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.peers > caption {
+  font-size: 14pt;
+  margin-bottom: 15px;
+}
+
+table {
+  display: none;
+}
+
+table, th, td {
+  border: 1px solid $accent-color;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 10px;
+  text-align: left;
+  color: $fg-color;
+  background-color: $bg-color;
+}
+
+thead > tr > td {
+  font-weight: bold;
+}

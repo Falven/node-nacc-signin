@@ -1,0 +1,17 @@
+extends head
+
+block content
+  body#reason
+    main
+      article
+        header#title
+          h1 Student ID# #{sid}
+          if error
+            h2(class="error") Invalid reason provided. Please try again.
+          else
+            h2 Please select the reason for your visit today.
+        section#peers
+          form.reason(action="peers", method="post")
+            input(type="submit", name="reason", value="Tutoring")
+            input(type="submit", name="reason", value="Mentoring")
+            input(type="submit", name="reason", value="Printing")

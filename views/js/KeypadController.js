@@ -18,8 +18,9 @@ function KeypadController(displays, numerals, resets, maxChars) {
     function numeralKeyClicked(event) {
         if(displays) {
             for (var i = 0; i < displays.length; ++i) {
-                if(displays[i].textContent.length < maxChars) {
-                    displays[i].textContent += event.target.value;
+                var display = displays[i];
+                if(display.value.length < maxChars) {
+                    display.value += event.target.value;
                 }
             }
         }
@@ -28,7 +29,7 @@ function KeypadController(displays, numerals, resets, maxChars) {
     function resetKeyClicked() {
         if(displays) {
             for (var i = 0; i < displays.length; ++i) {
-                displays[i].textContent = "";
+                displays[i].value = "";
             }
         }
     }
