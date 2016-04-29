@@ -41,20 +41,15 @@ router.get('/', getStudentID);
 router.post('/', resetSession, getStudentID);
 
 function getStudentID(req, res, next) {
-    if(req.session.url === req.session.baseUrl) {
-        res.render('index', {
-            title: TITLE,
-            description: DESCRIPTION,
-            keywords: KEYWORDS,
-            error: req.query.error !== undefined
-        });
-    } else {
-        res.redirect(req.session.url);
-    }
+    res.render('index', {
+        title: TITLE,
+        description: DESCRIPTION,
+        keywords: KEYWORDS,
+        error: req.query.error !== undefined
+    });
 }
 
 function resetSession(req, res, next) {
-    req.session.url = req.session.baseUrl;
     req.session.studentID = '';
     req.session.reason = '';
     req.session.peer = '';
@@ -72,7 +67,6 @@ function setStudentID(req, res, next) {
     var studentID = req.body.pin;
     if(isValidID(studentID)) {
         req.session.studentID = studentID;
-        req.session.url = req.session.baseUrl;
         next();
     } else {
         res.redirect('/' + ERROR_QUERY);
@@ -83,22 +77,18 @@ function requireStudentID(req, res, next) {
     if(req.session.studentID) {
         next();
     } else {
-        res.redirect('/');
+        res.redirect('/' + ERROR_QUERY);
     }
 }
 
 function getReason(req, res, next) {
-    if(req.session.url === req.session.baseUrl) {
-        res.render('reason', {
-            title: TITLE,
-            description: DESCRIPTION,
-            keywords: KEYWORDS,
-            studentID: req.session.studentID,
-            error: req.query.error !== undefined
-        });
-    } else {
-        res.redirect(req.session.url);
-    }
+    res.render('reason', {
+        title: TITLE,
+        description: DESCRIPTION,
+        keywords: KEYWORDS,
+        studentID: req.session.studentID,
+        error: req.query.error !== undefined
+    });
 }
 
 router.post('/reason/peer', setReason);
@@ -112,7 +102,6 @@ function setReason(req, res, next) {
     var reason = req.body.reason;
     if(isValidReason(reason)) {
         req.session.reason = reason;
-        req.session.url = req.session.baseUrl;
         next();
     } else {
         res.redirect('/reason' + ERROR_QUERY);
@@ -123,69 +112,76 @@ function requireReason(req, res, next) {
     if(req.session.reason) {
         next();
     } else {
-        res.redirect('/reason');
+        res.redirect('/reason' + ERROR_QUERY);
     }
 }
 
 function getPeer(req, res, next) {
-    if(req.session.url === req.session.baseUrl) {
-        var reason = req.session.reason;
-        var peerType = reason.toLowerCase().substr(0, reason.length - 3);
-        var peers = peerType === 'tutor' ? TUTORS : MENTORS;
-        res.render('peer', {
-            title: TITLE,
-            description: DESCRIPTION,
-            keywords: KEYWORDS,
-            studentID: req.session.studentID,
-            peerType: peerType,
-            peers: peers,
-            error: req.query.error !== undefined
-        });
-    } else {
-        res.redirect(req.session.url);
-    }
+    var reason = req.session.reason;
+    var peerType = reason.toLowerCase().substr(0, reason.length - 3);
+    var peers = peerType === 'tutor' ? TUTORS : MENTORS;
+    res.render('peer', {
+        title: TITLE,
+        description: DESCRIPTION,
+        keywords: KEYWORDS,
+        studentID: req.session.studentID,
+        peerType: peerType,
+        peers: peers,
+        error: req.query.error !== undefined
+    });
 }
 
-router.post('/reason/peer/confirm', setPeer);
+router.post('/reason/peer/confirm', trySetPrintingReason, setPeer);
 router.all('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm);
 
 function isValidPeer(peer) {
     return peer && true;
 }
 
+function trySetPrintingReason(req, res, next) {
+    var reason = req.body.reason;
+    if(reason === 'Printing') {
+        req.session.reason = reason;
+    }
+    next();
+}
+
 function setPeer(req, res, next) {
-    var peer = req.body.peer;
-    if(isValidPeer(peer)) {
-        req.session.peer = peer;
-        req.session.url = req.session.baseUrl;
+    if(req.session.reason === 'Printing') {
+        next();
+    } else {
+        var peer = req.body.peer;
+        if(isValidPeer(peer)) {
+            req.session.peer = peer;
+            next();
+        } else {
+            res.redirect('/reason/peer' + ERROR_QUERY);
+        }
+    }
+}
+
+function requirePeer(req, res, next) {
+    if(req.session.peer || req.session.reason === 'Printing') {
         next();
     } else {
         res.redirect('/reason/peer' + ERROR_QUERY);
     }
 }
 
-function requirePeer(req, res, next) {
-    if(req.session.peer) {
-        next();
-    } else {
-        res.redirect('/reason/peer');
-    }
+function getConfirm(req, res, next) {
+    var reason = req.session.reason;
+    res.render('confirm', {
+        title: TITLE,
+        description: DESCRIPTION,
+        keywords: KEYWORDS,
+        studentID: req.session.studentID,
+        reason: reason,
+        error: req.query.error !== undefined
+    });
 }
 
-function getConfirm(req, res, next) {
-    if(req.session.url === req.session.baseUrl) {
-        var reason = req.session.reason;
-        res.render('confirm', {
-            title: TITLE,
-            description: DESCRIPTION,
-            keywords: KEYWORDS,
-            studentID: req.session.studentID,
-            reason: reason,
-            error: req.query.error !== undefined
-        });
-    } else {
-        res.redirect(req.session.url);
-    }
+function logSession() {
+
 }
 
 module.exports = router;

@@ -9,7 +9,9 @@ block content
         section
           form(action="/reason/peer", method="post")
             input.themed.reason(type="submit", name="reason", value="Tutoring")
+          form(action="/reason/peer", method="post")
             input.themed.reason(type="submit", name="reason", value="Mentoring")
+          form(action="/reason/peer/confirm", method="post")
             input.themed.reason(type="submit", name="reason", value="Printing")
         include footer
         +footer
