@@ -1,15 +1,12 @@
 var app = require('../app');
 var express = require('express');
-var router = express.Router();
+
+var router = module.exports = express.Router();
 
 const STUDENT_ID_LENGTH = 9;
-const TITLE = 'NACC';
-const DESCRIPTION = 'NACC Student Login Website.';
-const KEYWORDS = 'CSU, NACC, Tutoring, Mentoring';
 const REASONS = ['Tutoring', 'Mentoring', 'Printing'];
 const ERROR_QUERY = '?error=1';
 
-const TUTORS_COURSES = 2;
 const TUTORS = [
     {
         name: 'Rick Sanchez',
@@ -38,18 +35,18 @@ const MENTORS = [
 ];
 
 router.get('/', getStudentID);
-router.post('/', closeSession, getStudentID);
+router.post('/', resetSession, getStudentID);
 
 function getStudentID(req, res, next) {
     res.render('index', {
-        title: TITLE,
-        description: DESCRIPTION,
-        keywords: KEYWORDS,
+        title: app.locals.title,
+        description: app.locals.description,
+        keywords: app.locals.keywords,
         error: req.query.error !== undefined
     });
 }
 
-function closeSession(req, res, next) {
+function resetSession(req, res, next) {
     req.session = null;
     next();
 }
@@ -81,15 +78,15 @@ function requireStudentID(req, res, next) {
 
 function getReason(req, res, next) {
     res.render('reason', {
-        title: TITLE,
-        description: DESCRIPTION,
-        keywords: KEYWORDS,
+        title: app.locals.title,
+        description: app.locals.description,
+        keywords: app.locals.keywords,
         studentID: req.session.studentID,
         error: req.query.error !== undefined
     });
 }
 
-router.post('/reason/peer', setReason, requireStudentID, requireReason, getPeer);
+router.post('/reason/peer', requireStudentID, setReason, requireReason, getPeer);
 router.get('/reason/peer', requireStudentID, requireReason, getPeer);
 
 function isValidReason(reason) {
@@ -119,9 +116,9 @@ function getPeer(req, res, next) {
     var peerType = reason.toLowerCase().substr(0, reason.length - 3);
     var peers = peerType === 'tutor' ? TUTORS : MENTORS;
     res.render('peer', {
-        title: TITLE,
-        description: DESCRIPTION,
-        keywords: KEYWORDS,
+        title: app.locals.title,
+        description: app.locals.description,
+        keywords: app.locals.keywords,
         studentID: req.session.studentID,
         peerType: peerType,
         peers: peers,
@@ -129,8 +126,8 @@ function getPeer(req, res, next) {
     });
 }
 
-router.post('/reason/peer/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession, closeSession);
-router.get('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession, closeSession);
+router.post('/reason/peer/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
+router.get('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession);
 
 function isValidPeer(peer) {
     return peer && true;
@@ -167,42 +164,17 @@ function requirePeer(req, res, next) {
 }
 
 function getConfirm(req, res, next) {
+    var reason = req.session.reason;
     res.render('confirm', {
-        title: TITLE,
-        description: DESCRIPTION,
-        keywords: KEYWORDS,
+        title: app.locals.title,
+        description: app.locals.description,
+        keywords: app.locals.keywords,
         studentID: req.session.studentID,
-        reason: req.session.reason,
+        reason: reason,
         error: req.query.error !== undefined
     });
-    next();
 }
 
 function logSession(req, res, next) {
     next();
 }
-
-router.get('/admin', getAdminPin);
-
-function getAdminPin(req, res, next) {
-    res.render('admin', {
-        title: TITLE,
-        description: DESCRIPTION,
-        keywords: KEYWORDS,
-        error: req.query.error !== undefined
-    });
-}
-
-router.post('/admin/dashboard', getDashboard);
-router.get('/admin/dashboard', getDashboard);
-
-function getDashboard(req, res, next) {
-    res.render('dashboard', {
-        title: TITLE,
-        description: DESCRIPTION,
-        keywords: KEYWORDS,
-        error: req.query.error !== undefined
-    });
-}
-
-module.exports = router;

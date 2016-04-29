@@ -1,6 +1,6 @@
 mixin keypad(action, method, instructions)
   section#keypad
-    form(action="#{action}", method="#{method}")
+    form(action= action, method= method)
       label(class= error ? "error" : "") #{instructions}
       input.themed.display(type="text" name="pin" value="" readonly)
       .keys

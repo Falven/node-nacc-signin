@@ -5,17 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+
+var app = module.exports = express();
+
 var index = require('./routes/index');
 
-var app = express();
+app.locals.title = 'NACC';
+app.locals.description = 'NACC Student Login Website.';
+app.locals.keywords = 'CSU, NACC, Tutoring, Mentoring';
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views', 'jade'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views', 'pug'));
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('common')); // 'dev'
+app.use(logger('dev')); // 'common'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -59,6 +64,3 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-module.exports = app;
