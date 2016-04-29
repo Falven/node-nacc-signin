@@ -9,24 +9,24 @@ block content
         section.peers
           form(action="/reason/peer/confirm", method="post")
             table
-              - if (peerType == "tutor")
+              if peerType === "tutor"
                 thead
                   tr
                     th Tutor Name
                     th Courses
                   tbody
-                    - each tutor in peers
+                    each tutor in peers
                       tr
                         td
                           input.button.trans(id= tutor.name, type="submit" name="peer" value= tutor.name)
                         td
                           label(for= tutor.name)= tutor.courses
-              - else
+              else
                 thead
                   tr
                     th Mentor Name
                   tbody
-                    - each mentor in peers
+                    each mentor in peers
                       tr
                         td
                           input.button.trans(id= mentor.name, type="submit" name="peer" value= mentor.name)
