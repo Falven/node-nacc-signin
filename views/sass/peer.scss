@@ -1,0 +1,40 @@
+#peers {
+  text-align: left;
+
+  .peers {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+  }
+
+  table, label, .trans {
+    width: 100%;
+  }
+
+  .trans {
+    background: transparent;
+    color: white;
+    text-align: inherit;
+  }
+
+  th, .trans, label {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  table, th, td {
+    border: 1px solid $accent-color;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    color: $fg-color;
+    background-color: $bg-color;
+  }
+
+  thead > tr > td {
+    font-weight: bold;
+  }
+}

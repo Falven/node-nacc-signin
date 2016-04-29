@@ -123,6 +123,7 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     script: 'bin/www',
+                    debug: true,
                     node_env: 'development'
                 }
             },

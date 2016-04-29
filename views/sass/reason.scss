@@ -1,21 +1,22 @@
 #reason {
-  #peers {
-    width: 75%;
+  section {
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-  }
 
-  .reason {
-    width: 30%;
-    > input {
-      width: 100%;
-      padding: 20%;
+    > form {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .reason {
+        width: 100%;
+        padding: calc(50% / 4);
+        margin: 10px;
+      }
     }
   }
 }

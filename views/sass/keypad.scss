@@ -7,7 +7,7 @@
   }
 
   > form {
-    width: 85%;
+    width: 75%;
     margin: auto;
   }
 
@@ -28,10 +28,11 @@
   }
 
   $width: 33;
-  $height: 9%;
-  .key {
+  $height: 6%;
+  .button {
     width: #{$width + '%'};
-    padding: #{$height};
+    padding: calc(35% / 4);
+    font-size: 10pt;
   }
 
   $button-margin: ((100 - $width * $button-cols) / 2) + '%';

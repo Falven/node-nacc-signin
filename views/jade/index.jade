@@ -4,8 +4,9 @@ block content
   body#index
     main
       article
-        header#title
-          h1= title
-          h2 Welcome to the Tutoring Center
+        include header
+        +header(title, "Welcome to the Tutoring Center")
         include keypad
-        +keypad('reason', 'post', error ? 'An invalid CSU student ID was entered, please try again:' : 'Please enter your CSU Student ID to log in:')
+        +keypad('/reason', 'post', error ? 'An invalid CSU student ID was entered, please try again:' : 'Please enter your CSU Student ID to log in:')
+        include footer
+        +footer

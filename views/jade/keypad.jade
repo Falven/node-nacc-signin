@@ -2,10 +2,10 @@ mixin keypad(action, method, instructions)
   section#keypad
     form(action="#{action}", method="#{method}")
       label(class= error ? "error" : "") #{instructions}
-      input.display(type="text" name="sid" value="" readonly)
+      input.themed.display(type="text" name="pin" value="" readonly)
       .keys
         each val, index in ['1', '2', '3', '4', '5', '6', '7', '8', '9' ]
-          input.key.numeric(type="button", class="kp_" + index, value=val)
-        input.key.reset.kp_9(type="button", value="Reset")
-        input.key.numeric.kp_10(type="button", value="0")
-        input.key.enter.kp_11(type="submit", value="Enter")
+          input.themed.button.numeric(type="button", class="kp_" + index, value=val)
+        input.themed.button.reset.kp_9(type="button", value="Reset")
+        input.themed.button.numeric.kp_10(type="button", value="0")
+        input.themed.button.enter.kp_11(type="submit", value="Enter")

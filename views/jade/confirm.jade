@@ -1,0 +1,19 @@
+extends head
+
+block content
+  body#confirm
+    main
+      article
+        include header
+        +header("Student # " + studentID, "You have successfully signed in!", false)
+        section.peers
+          figure.confirmation
+            img(src="/media/confirm.svg" alt="Confirmation Image")
+        if reason == "Tutoring"
+          h2 You may now go receive tutoring. Good luck!
+        else if reason == "Mentoring"
+          h2 You may now go receive mentoring. Good luck!
+        else
+          h2 Please proceed to the computer bay.<br>Happy printing!
+        include footer
+        +footer

@@ -24,30 +24,16 @@ body {
   letter-spacing: 0;
 }
 
-#title {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 25px;
-}
+@import "header";
 
-h1 {
-  font-size: 22pt;
-  font-family: 'Montserrat', sans-serif;
-}
-
-h2 {
-  font-size: 14pt;
-  margin: 10px 0;
-}
-
-input[type="button"], input[type="text"], input[type="submit"] {
+.themed {
   font-size: 14pt;
   color: $fg-color;
   background-color: $bg-color;
-  border: solid 1px $accent-color;
+  border: solid 2px $accent-color;
 }
 
-input[type="button"] {
+.button {
   appearance: none;
   border-radius: 0;
   cursor: pointer;
@@ -65,14 +51,40 @@ input[type="button"]:active {
 
 @import "reason";
 
+@import "peer";
+
+@import "confirm";
+
+@import "footer";
+
 @include respond-min("tablet") {
   #keypad > form {
     width: 35%;
+  }
+  #reason {
+    #peers {
+      width: 30%;
+    }
   }
 }
 
 @include respond-min("laptop") {
   #keypad > form {
     width: 55%;
+
+    .key {
+      font-size: 14pt;
+    }
+  }
+  header {
+    margin-top: 15px;
+    h2 {
+      margin: 10px 0;
+    }
+  }
+  #reason {
+    #peers {
+      width: 30%;
+    }
   }
 }

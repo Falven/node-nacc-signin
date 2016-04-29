@@ -31,23 +31,36 @@ NACC = {
             );
         }
     },
-    peers : {
-        init : function() {
-            new ReasonController(
-                document.getElementsByClassName('tutoring')[0],
-                document.getElementsByClassName('mentoring')[0],
-                document.getElementsByClassName('printing')[0],
-                document.getElementsByClassName('peers')[0]
-            );
-        }
-    },
     admin : {
 
     }
 };
 
+function injectEmail() {
+    var email = {
+        part1: 'mail',
+        part2: 'to',
+        part3: ':',
+        part4: 'falven',
+        part5: '@',
+        part6: 'rams.',
+        part7: 'colostate',
+        part8: '.',
+        part9: 'ed',
+        part10: 'u',
+        part11: '?Sub',
+        part12: 'ject',
+        part13: '=NACC',
+        part14: '%20',
+        part15: 'Login'
+    };
+    var mailto = document.getElementById('mailto');
+    mailto.href = email.part1 + email.part2 + email.part3 + email.part4 + email.part5 + email.part6 + email.part7 + email.part8 + email.part9 + email.part10 + email.part11 + email.part12 + email.part13 + email.part14 + email.part15;
+}
+
 function domLoaded() {
     UTIL.loadEvents();
+    injectEmail();
 }
 
 document.addEventListener("DOMContentLoaded", domLoaded);

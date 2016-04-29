@@ -20,7 +20,6 @@ function ReasonController(tutoringButton, mentoringButton, printingButton, table
             if (xhttp.readyState === 4 && xhttp.status === 200) {
                 if(tableOwner !== peer) {
                     clearTable();
-                    editCaption(peer);
                     populateTableHeader(peer);
                     populateTable(peer, JSON.parse(xhttp.responseText));
                     tableOwner = peer;
@@ -37,10 +36,6 @@ function ReasonController(tutoringButton, mentoringButton, printingButton, table
         while(length-- > 0) {
             table.deleteRow(0);
         }
-    }
-
-    function editCaption(peer) {
-        table.caption.innerHTML = '2. Please select your ' + peer.toLowerCase().substr(0, peer.length - 3) + '.';
     }
 
     function populateTableHeader(peer) {
