@@ -1,15 +1,15 @@
-extends head
+extends head.pug
 
 block content
   body#peers
     main
       article
-        include header
+        include header.pug
         +header("Student # " + studentID, error ? "Invalid " + peerType + " provided. Please try again" : "Please select your " + peerType + ".", error)
         section.peers
           form(action="/reason/peer/confirm", method="post")
             table
-              if peerType == "tutor"
+              - if (peerType == "tutor")
                 thead
                   tr
                     th Tutor Name
@@ -21,7 +21,7 @@ block content
                           input.button.trans(id= tutor.name, type="submit" name="peer" value= tutor.name)
                         td
                           label(for= tutor.name)= tutor.courses
-              else
+              - else
                 thead
                   tr
                     th Mentor Name
@@ -30,5 +30,5 @@ block content
                       tr
                         td
                           input.button.trans(id= mentor.name, type="submit" name="peer" value= mentor.name)
-        include footer
+        include footer.pug
         +footer

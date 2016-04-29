@@ -47,14 +47,12 @@ function getStudentID(req, res, next) {
 }
 
 function resetSession(req, res, next) {
-    req.session.studentID = '';
-    req.session.reason = '';
-    req.session.peer = '';
+    req.session = null;
     next();
 }
 
-router.post('/reason', setStudentID);
-router.all('/reason', requireStudentID, getReason);
+router.post('/reason', setStudentID, requireStudentID, getReason);
+router.get('/reason', requireStudentID, getReason);
 
 function isValidID(studentID) {
     return studentID && studentID.length === STUDENT_ID_LENGTH && !isNaN(studentID);
@@ -88,8 +86,8 @@ function getReason(req, res, next) {
     });
 }
 
-router.post('/reason/peer', setReason);
-router.all('/reason/peer', requireStudentID, requireReason, getPeer);
+router.post('/reason/peer', requireStudentID, setReason, requireReason, getPeer);
+router.get('/reason/peer', requireStudentID, requireReason, getPeer);
 
 function isValidReason(reason) {
     return reason && REASONS.indexOf(reason) != -1;
@@ -128,8 +126,8 @@ function getPeer(req, res, next) {
     });
 }
 
-router.post('/reason/peer/confirm', trySetPrintingReason, setPeer);
-router.all('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm);
+router.post('/reason/peer/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
+router.get('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession);
 
 function isValidPeer(peer) {
     return peer && true;
@@ -177,6 +175,6 @@ function getConfirm(req, res, next) {
     });
 }
 
-function logSession() {
-
+function logSession(req, res, next) {
+    next();
 }
