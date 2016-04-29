@@ -38,7 +38,7 @@ const MENTORS = [
 ];
 
 router.get('/', getStudentID);
-router.post('/', resetSession, getStudentID);
+router.post('/', closeSession, getStudentID);
 
 function getStudentID(req, res, next) {
     res.render('index', {
@@ -49,15 +49,13 @@ function getStudentID(req, res, next) {
     });
 }
 
-function resetSession(req, res, next) {
-    req.session.studentID = '';
-    req.session.reason = '';
-    req.session.peer = '';
+function closeSession(req, res, next) {
+    req.session = null;
     next();
 }
 
-router.post('/reason', setStudentID);
-router.all('/reason', requireStudentID, getReason);
+router.post('/reason', setStudentID, requireStudentID, getReason);
+router.get('/reason', requireStudentID, getReason);
 
 function isValidID(studentID) {
     return studentID && studentID.length === STUDENT_ID_LENGTH && !isNaN(studentID);
@@ -91,8 +89,8 @@ function getReason(req, res, next) {
     });
 }
 
-router.post('/reason/peer', setReason);
-router.all('/reason/peer', requireStudentID, requireReason, getPeer);
+router.post('/reason/peer', setReason, requireStudentID, requireReason, getPeer);
+router.get('/reason/peer', requireStudentID, requireReason, getPeer);
 
 function isValidReason(reason) {
     return reason && REASONS.indexOf(reason) != -1;
@@ -131,8 +129,8 @@ function getPeer(req, res, next) {
     });
 }
 
-router.post('/reason/peer/confirm', trySetPrintingReason, setPeer);
-router.all('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm);
+router.post('/reason/peer/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession, closeSession);
+router.get('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession, closeSession);
 
 function isValidPeer(peer) {
     return peer && true;
@@ -169,19 +167,42 @@ function requirePeer(req, res, next) {
 }
 
 function getConfirm(req, res, next) {
-    var reason = req.session.reason;
     res.render('confirm', {
         title: TITLE,
         description: DESCRIPTION,
         keywords: KEYWORDS,
         studentID: req.session.studentID,
-        reason: reason,
+        reason: req.session.reason,
+        error: req.query.error !== undefined
+    });
+    next();
+}
+
+function logSession(req, res, next) {
+    next();
+}
+
+router.get('/admin', getAdminPin);
+
+function getAdminPin(req, res, next) {
+    res.render('admin', {
+        title: TITLE,
+        description: DESCRIPTION,
+        keywords: KEYWORDS,
         error: req.query.error !== undefined
     });
 }
 
-function logSession() {
+router.post('/admin/dashboard', getDashboard);
+router.get('/admin/dashboard', getDashboard);
 
+function getDashboard(req, res, next) {
+    res.render('dashboard', {
+        title: TITLE,
+        description: DESCRIPTION,
+        keywords: KEYWORDS,
+        error: req.query.error !== undefined
+    });
 }
 
 module.exports = router;

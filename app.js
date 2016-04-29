@@ -23,7 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'nacc',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  unset: 'destroy'
 }));
 
 app.use('/', index);

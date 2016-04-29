@@ -32,7 +32,14 @@ NACC = {
         }
     },
     admin : {
-
+        init : function() {
+            new KeypadController(
+                document.getElementsByClassName('display'),
+                document.getElementsByClassName('numeric'),
+                document.getElementsByClassName('reset'),
+                4
+            );
+        }
     }
 };
 

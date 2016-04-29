@@ -4,8 +4,9 @@ block content
   body#admin
     main
       article
-        section#title
-          h1= title
-          h2 Welcome to the Tutoring Center
+        include header
+        +header(title, "Administrative controls.")
         include keypad
-        +keypad('', 'post', 'Please enter your Admin Pin:')
+        +keypad('dashboard', 'post', 'Please enter the Administrative Pin #:')
+        include footer
+        +footer

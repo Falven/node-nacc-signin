@@ -55,6 +55,8 @@ input[type="button"]:active {
 
 @import "confirm";
 
+@import "admin";
+
 @import "footer";
 
 @include respond-min("tablet") {
