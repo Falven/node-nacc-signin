@@ -61,11 +61,14 @@ input[type="button"]:active {
 
 @include respond-min("tablet") {
   #keypad > form {
-    width: 35%;
+    width: 50%;
   }
   #reason {
-    #peers {
+    section {
       width: 30%;
+    }
+    #peers {
+      width: 25%;
     }
   }
 }
@@ -85,6 +88,33 @@ input[type="button"]:active {
     }
   }
   #reason {
+    section {
+      width: 45%;
+    }
+    #peers {
+      width: 30%;
+    }
+  }
+}
+
+@include respond-min("laptop") {
+  #keypad > form {
+    width: 45%;
+
+    .key {
+      font-size: 14pt;
+    }
+  }
+  header {
+    margin-top: 15px;
+    h2 {
+      margin: 10px 0;
+    }
+  }
+  #reason {
+    section {
+      width: 45%;
+    }
     #peers {
       width: 30%;
     }
