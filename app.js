@@ -9,6 +9,7 @@ var session = require('express-session');
 var app = module.exports = express();
 
 var index = require('./routes/index');
+var admin = require('./routes/admin');
 
 app.locals.title = 'NACC';
 app.locals.description = 'NACC Student Login Website.';
@@ -33,6 +34,7 @@ app.use(session({
 }));
 
 app.use('/', index);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

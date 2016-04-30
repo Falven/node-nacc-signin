@@ -178,28 +178,3 @@ function getConfirm(req, res, next) {
 function logSession(req, res, next) {
     next();
 }
-
-router.get('/admin', getAdmin);
-
-function getAdmin(req, res, next) {
-    res.render('admin', {
-        title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
-        error: req.query.error !== undefined
-    });
-}
-
-router.post('/admin/dashboard');
-router.get('/admin/dashboard');
-
-function getDashboard(req, res, next) {
-    res.render('dashboard', {
-        title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
-        error: req.query.error !== undefined
-    });
-}
-
-
