@@ -1,21 +1,26 @@
 #reason {
+
+  .p {
+    text-align: center;
+    margin: $line-height 0;
+  }
+
   section {
     width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin: $base-line-height auto;
 
-    > form {
+    form {
       display: flex;
       flex-flow: row;
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
+      margin-bottom: $base-line-height;
 
       .reason {
         width: 100%;
-        padding: calc(50% / 4);
-        margin: 10px;
+        padding: $base-line-height;
+        @include type-setting(-1);
       }
     }
   }

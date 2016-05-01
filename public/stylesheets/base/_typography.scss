@@ -112,11 +112,11 @@ body {
 }
 
 .h2 {
-  @include type-setting(-1);
+  @include type-setting(1);
   font-weight: $regular;
 }
 
 .p, .label {
-  @include type-setting(0);
+  @include type-setting(-1);
   margin: 0 0 $base-line-height 0;
 }

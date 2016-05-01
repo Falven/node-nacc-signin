@@ -3,6 +3,10 @@
     $key-width: 100 / $cols - $margin;
     width: 100%;
 
+    .label {
+      display: block;
+    }
+
     .text-input {
       width: 100%;
       display: block;

@@ -1,8 +1,8 @@
 #index {
 
-  #keypad {
+  section {
     width: 75%;
-    margin: auto;
+    margin: $base-line-height auto;
     @include keypad-form(4, 3, .25);
   }
 

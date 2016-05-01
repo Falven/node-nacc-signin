@@ -7,9 +7,9 @@ include footer.pug
 
 block content
   body#index
-    +baseline
+    //+baseline
     main
-      +header(title, "Welcome to the Tutoring Center")
+      +header("Welcome to the Tutoring Center")
       section#keypad
         +keypad('/reason', 'post', error ? 'An invalid CSU student ID was entered, please try again:' : 'Please enter your CSU Student ID to log in:')
       +footer

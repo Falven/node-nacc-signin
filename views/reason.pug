@@ -1,17 +1,23 @@
 extends head
 
+include baseline.pug
+include header.pug
+include footer.pug
+
 block content
   body#reason
+    +baseline
     main
-      article
-        include header
-        +header("Student # " + studentID, error ? "Invalid reason provided. Please try again" : "Please select the reason for your visit today.", error)
-        section
-          form(action="/reason/peer", method="post")
-            input.themed.reason(type="submit", name="reason", value="Tutoring")
-          form(action="/reason/peer", method="post")
-            input.themed.reason(type="submit", name="reason", value="Mentoring")
-          form(action="/reason/peer/confirm", method="post")
-            input.themed.reason(type="submit", name="reason", value="Printing")
-        include footer
-        +footer
+      +header("Student # " + studentID)
+      if error
+        p.p Invalid reason provided. Please try again.
+      else
+        p.p Please select the reason for your visit today.
+      section
+        form(action="/reason/peer", method="post")
+          input.button-input.reason(type="submit", name="reason", value="Tutoring")
+        form(action="/reason/peer", method="post")
+          input.button-input.reason(type="submit", name="reason", value="Mentoring")
+        form(action="/reason/peer/confirm", method="post")
+          input.button-input.reason(type="submit", name="reason", value="Printing")
+      +footer

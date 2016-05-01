@@ -1,23 +1,18 @@
 footer {
-  margin-top: 10px;
-  //margin-bottom: 10px;
   text-align: center;
 
-  > form {
-    margin: 0 0 15px 0;
-    > input {
-      width: 60px;
-      padding: 10px;
+  form {
+    margin: 0 0 $line-height 0;
+    input {
+      width: 35px;
     }
   }
 
   ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 
     > li {
-      margin: 5px;
+      margin: 0 $line-height;
       display: inline;
 
       > a {
