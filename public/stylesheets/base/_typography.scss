@@ -24,29 +24,34 @@ $font-weight: $base-font-weight;
 $font-size: $base-font-size;
 $line-height: $base-line-height;
 
-$type-scale: (
-  -1: 0.75rem,  // small text
-  0: 1rem,      // body text
-  1: 1.333rem,  // large text
-  2: 1.777rem   // main heading
+$type-settings: (
+  -1: (
+    font-size: 0.75rem,
+    line-height: $base-line-height
+  ),
+  0: (
+    font-size: 1rem,
+    line-height: $base-line-height
+  ),
+  1: (
+    font-size: 1.333rem,
+    line-height: $base-line-height * 2
+  ),
+  2: (
+    font-size: 1.778rem,
+    line-height: $base-line-height * 2
+  )
 );
 
 @function type-scale($level) {
-  @return map-get($type-scale, $level);
+  @return map-get(map-get($type-settings, $level), 'font-size');
 }
-
-$line-heights: (
-  -1: $base-line-height,
-  0: $base-line-height,
-  1: $base-line-height * 2,
-  2: $base-line-height * 2
-);
 
 @function line-height($level) {
-  @return map-get($line-heights, $level);
+  @return map-get(map-get($type-settings, $level), 'line-height');
 }
 
-@mixin type-setting($level: 0) {
+@mixin type-setting($level) {
   font-size: type-scale($level);
   line-height: line-height($level);
 }
@@ -59,8 +64,20 @@ body {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
-.h1 { @include type-setting(2); }
+.h1 {
+  font-family: 'Montserrat', sans-serif;
+  @include type-setting(2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1 * $base-line-height 0;
+}
 
-.h2 { @include type-setting(-1); }
+.h2 {
+  @include type-setting(-1);
+  font-weight: $regular;
+}
 
-.p { @include type-setting(0); }
+.p, .label {
+  @include type-setting(0);
+  margin: 0 0 $base-line-height 0;
+}

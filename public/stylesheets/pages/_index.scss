@@ -1,0 +1,11 @@
+#index {
+
+  #keypad {
+
+    @include keypad-form(4, 3, .25);
+
+    width: 75%;
+    margin: auto;
+  }
+
+}
