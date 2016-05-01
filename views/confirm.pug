@@ -10,9 +10,9 @@ block content
           figure.confirmation
             img(src="/media/confirm.svg" alt="Confirmation Image")
         if reason == "Tutoring"
-          h2 You may now go receive tutoring. Good luck!
+          h2 You may now go see #{peer}. Good luck!
         else if reason == "Mentoring"
-          h2 You may now go receive mentoring. Good luck!
+          h2 You may now go see #{peer}. Good luck!
         else
           h2 Please proceed to the computer bay.<br>Happy printing!
         include footer

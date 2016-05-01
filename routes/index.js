@@ -164,13 +164,13 @@ function requirePeer(req, res, next) {
 }
 
 function getConfirm(req, res, next) {
-    var reason = req.session.reason;
     res.render('confirm', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
         studentID: req.session.studentID,
-        reason: reason,
+        reason: req.session.reason,
+        peer: req.session.peer,
         error: req.query.error !== undefined
     });
 }
