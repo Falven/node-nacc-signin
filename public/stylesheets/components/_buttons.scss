@@ -1,0 +1,50 @@
+$button-display: inline-block;
+$button-font-size: $base-font-size;
+$button-font-weight: normal;
+$button-padding: 0;
+$button-text-transform: capitalize;
+$button-border-width: 2px;
+$button-border-style: solid;
+
+%button-base {
+  display: $button-display;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  text-transform: $button-text-transform;
+  border-width: $button-border-width;
+  border-style: $button-border-style;
+}
+
+@mixin button-theme($text-color, $border-color, $background-color) {
+  color: $text-color;
+  border-color: $border-color;
+  background-color: $background-color;
+}
+
+@mixin button-base(
+  $text-color: null,
+  $border-color: null,
+  $background-color: null,
+  $hover-text-color: null,
+  $hover-border-color: null,
+  $hover-background-color: null) {
+
+  @include button-theme($text-color, $border-color, $background-color);
+  &:hover {
+    @include button-theme($hover-text-color, $hover-border-color, $hover-background-color);
+  }
+
+}
+
+@mixin border-button($text-color, $text-color-hover) {
+  @include button-base($text-color, $text-color, transparent, $text-color-hover, $text-color, $text-color);
+}
+
+.button {
+  @extend %button-base;
+  @include border-button($primary-color, $accent-color);
+  &.secondary {
+    @include border-button($secondary-color, $accent-color);
+  }
+}

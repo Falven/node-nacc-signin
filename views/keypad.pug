@@ -1,11 +1,11 @@
 mixin keypad(action, method, instructions)
   section#keypad
     form(action= action, method= method)
-      label(class= error ? "error" : "") #{instructions}
-      input.themed.display(type="text" name="pin" value="" readonly)
+      label(class= error ? ".error-text" : "")= instructions
+      input.text-input(type="text" name="pin" value="" readonly)
       .keys
         each val, index in ['1', '2', '3', '4', '5', '6', '7', '8', '9' ]
-          input.themed.button.numeric(type="button", class="kp_" + index, value=val)
-        input.themed.button.reset.kp_9(type="button", value="Reset")
-        input.themed.button.numeric.kp_10(type="button", value="0")
-        input.themed.button.enter.kp_11(type="submit", value="Enter")
+          input.button-input.numeric(type="button", class="kp_" + index, value=val)
+        input.button-input.reset.kp_9(type="button", value="Reset")
+        input.button-input.numeric.kp_10(type="button", value="0")
+        input.button-input.enter.kp_11(type="submit", value="Enter")

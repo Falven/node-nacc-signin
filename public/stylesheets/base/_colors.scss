@@ -1,0 +1,16 @@
+// Colors
+$accent-color: #0D4D24;
+$primary-color: #F0F0E0;
+$secondary-color: #536952;
+$tertiary-color: #A8A797;
+$text-color-dark: #222;
+$text-color-light: #fff;
+$text-color-error: #d33526;
+
+body {
+  color: $text-color-dark;
+}
+
+.error-text {
+  color: $text-color-error;
+}

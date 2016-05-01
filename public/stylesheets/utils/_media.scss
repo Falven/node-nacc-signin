@@ -1,0 +1,96 @@
+$breakpoints: (
+  "mobile": 0,
+  "tablet": 736px,
+  "laptop": 1012px,
+  "desktop": 1440px
+);
+
+@mixin respond-min($key) {
+  @if map-has-key($breakpoints, $key) {
+    @media only screen
+    and (min-width: #{inspect(map-get($breakpoints, $key))}) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+@mixin respond-min-2x($key) {
+  @if map-has-key($breakpoints, $key) {
+    $br: inspect(map-get($breakpoints, $key));
+    @media
+    only screen and (min-width: #{$br}) and (min-resolution: 1.5dppx),
+    only screen and (min-width: #{$br}) and (min-resolution: 144dpi) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+//@include respond-min("tablet") {
+//  #keypad > form {
+//    width: 50%;
+//  }
+//  #reason {
+//    section {
+//      width: 30%;
+//    }
+//    #peers {
+//      width: 25%;
+//    }
+//  }
+//}
+//
+//@include respond-min("laptop") {
+//  #keypad > form {
+//    width: 55%;
+//
+//    .key {
+//      font-size: 14pt;
+//    }
+//  }
+//  header {
+//    margin-top: 15px;
+//    h2 {
+//      margin: 10px 0;
+//    }
+//  }
+//  #reason {
+//    section {
+//      width: 45%;
+//    }
+//    #peers {
+//      width: 30%;
+//    }
+//  }
+//}
+//
+//@include respond-min("laptop") {
+//  #keypad > form {
+//    width: 45%;
+//
+//    .key {
+//      font-size: 14pt;
+//    }
+//  }
+//  header {
+//    margin-top: 15px;
+//    h2 {
+//      margin: 10px 0;
+//    }
+//  }
+//  #reason {
+//    section {
+//      width: 45%;
+//    }
+//    #peers {
+//      width: 30%;
+//    }
+//  }
+//}

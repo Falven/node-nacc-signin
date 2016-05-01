@@ -1,0 +1,66 @@
+// Font weights
+$light: 100;
+$regular: 400;
+$bold: 600;
+
+// Base Font
+$base-font-family: sans-serif;
+$base-font-weight: $regular;
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+$base-letter-spacing: 0;
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+// Headings
+$heading-font-family: 'Open Sans', $base-font-family;
+$heading-font-weight: $bold;
+
+$font-family: 'Open Sans', $base-font-family;
+$font-weight: $base-font-weight;
+$font-size: $base-font-size;
+$line-height: $base-line-height;
+
+$type-scale: (
+  -1: 0.75rem,  // small text
+  0: 1rem,      // body text
+  1: 1.333rem,  // large text
+  2: 1.777rem   // main heading
+);
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+$line-heights: (
+  -1: $base-line-height,
+  0: $base-line-height,
+  1: $base-line-height * 2,
+  2: $base-line-height * 2
+);
+
+@function line-height($level) {
+  @return map-get($line-heights, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+body {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+.h1 { @include type-setting(2); }
+
+.h2 { @include type-setting(-1); }
+
+.p { @include type-setting(0); }

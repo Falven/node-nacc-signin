@@ -1,122 +1,15 @@
 @charset "utf-8";
 
-@import "reset";
+@import "base/index";
 
-@import "media";
+@import "components/index";
 
-$fg-color: #FFF;
-$bg-color: #323B40;
-$accent-color: #01674D;
-$selected-color: $accent-color;
-$error-color: red;
-$line-height: 1.7;
+@import "layout/index";
 
-body {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 10pt;
-  color: #222;
-  line-height: $line-height;
-  letter-spacing: 0;
-}
+@import "pages/index";
 
-@import "header";
+@import "themes/index";
 
-.themed {
-  font-size: 14pt;
-  color: $fg-color;
-  background-color: $bg-color;
-  border: solid 2px $accent-color;
-}
+@import "utils/index";
 
-.button {
-  appearance: none;
-  border-radius: 0;
-  cursor: pointer;
-}
-
-input[type="button"]:active {
-  background-color: $selected-color;
-}
-
-.error {
-  color: $error-color;
-}
-
-@import "keypad";
-
-@import "reason";
-
-@import "peer";
-
-@import "confirm";
-
-@import "admin";
-
-@import "footer";
-
-@include respond-min("tablet") {
-  #keypad > form {
-    width: 50%;
-  }
-  #reason {
-    section {
-      width: 30%;
-    }
-    #peers {
-      width: 25%;
-    }
-  }
-}
-
-@include respond-min("laptop") {
-  #keypad > form {
-    width: 55%;
-
-    .key {
-      font-size: 14pt;
-    }
-  }
-  header {
-    margin-top: 15px;
-    h2 {
-      margin: 10px 0;
-    }
-  }
-  #reason {
-    section {
-      width: 45%;
-    }
-    #peers {
-      width: 30%;
-    }
-  }
-}
-
-@include respond-min("laptop") {
-  #keypad > form {
-    width: 45%;
-
-    .key {
-      font-size: 14pt;
-    }
-  }
-  header {
-    margin-top: 15px;
-    h2 {
-      margin: 10px 0;
-    }
-  }
-  #reason {
-    section {
-      width: 45%;
-    }
-    #peers {
-      width: 30%;
-    }
-  }
-}
+@import "vendors/index";

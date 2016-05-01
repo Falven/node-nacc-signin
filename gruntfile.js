@@ -39,10 +39,10 @@ module.exports = function (grunt) {
         ]
       },
       dev: {
-        src: 'public/stylesheets/*.css'
+        src: 'public/stylesheets/index.min.css'
       },
       dist: {
-        src: 'public/stylesheets/*.css'
+        src: 'public/stylesheets/index.min.css'
       }
     },
 
@@ -57,13 +57,13 @@ module.exports = function (grunt) {
             jQuery: true
           }
         },
-        src: [ 'Gruntfile.js', 'public/javascripts/*.js', '!public/javascripts/*.min.js' ]
+        src: [ 'Gruntfile.js', 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ]
       }
     },
 
     concat: {
       dist: {
-        src: [ 'public/javascripts/*.js', '!public/javascripts/*.min.js' ],
+        src: [ 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ],
         dest: 'public/javascripts/index.min.js'
       }
     },
@@ -118,18 +118,18 @@ module.exports = function (grunt) {
 
     watch: {
       css: {
-        files: [ 'public/stylesheets/*.scss', '!public/stylesheets/*.css' ],
+        files: [ 'public/stylesheets/**/*.scss', '!public/stylesheets/**/*.css' ],
         tasks: [ 'sass:dev', 'postcss:dev' ]
       },
       js: {
-        files: [ 'Gruntfile.js', 'public/javascripts/*.js', '!public/javascripts/*.min.js' ],
+        files: [ 'Gruntfile.js', 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ],
         tasks: [ 'jshint:dev', 'concat:dist', 'uglify:dev' ]
       },
       livereload: {
         options: {
           livereload: true
         },
-        files: [ 'views/*.pug', 'public/**/*' ]
+        files: [ 'views/**/*.pug', 'public/**/*' ]
       }
     }
   });

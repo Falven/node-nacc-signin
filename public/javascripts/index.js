@@ -24,7 +24,7 @@ NACC = {
     index : {
         init : function() {
             new KeypadController(
-                document.getElementsByClassName('display'),
+                document.getElementsByClassName('text-input'),
                 document.getElementsByClassName('numeric'),
                 document.getElementsByClassName('reset'),
                 9

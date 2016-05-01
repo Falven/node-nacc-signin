@@ -1,12 +1,14 @@
 extends head
 
+include baseline.pug
+include header.pug
+include keypad.pug
+include footer.pug
+
 block content
   body#index
+    +baseline
     main
-      article
-        include header
-        +header(title, "Welcome to the Tutoring Center")
-        include keypad
-        +keypad('/reason', 'post', error ? 'An invalid CSU student ID was entered, please try again:' : 'Please enter your CSU Student ID to log in:')
-        include footer
-        +footer
+      +header(title, "Welcome to the Tutoring Center")
+      +keypad('/reason', 'post', error ? 'An invalid CSU student ID was entered, please try again:' : 'Please enter your CSU Student ID to log in:')
+      +footer

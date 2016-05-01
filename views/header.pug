@@ -1,7 +1,7 @@
 mixin header(title, subtitle, error)
   header
-    h1=title
+    h1.h1=title
     if error
-      h2(class="error")= subtitle
+      h2.h2(class="error")= subtitle
     else
-      h2= subtitle
+      h2.h2= subtitle
