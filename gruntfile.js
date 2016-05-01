@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
     sass: {
       options: {
-          includePaths: [ 'public/stylesheets/' ],
+          includePaths: [ 'public/stylesheets/**/*' ],
           sourceMap: false
       },
       dev: {
@@ -18,7 +18,7 @@ module.exports = function (grunt) {
           outputStyle: 'expanded'
         },
         files: {
-          'public/stylesheets/index.min.css': 'public/stylesheets/_module.scss'
+          'public/stylesheets/index.min.css': 'public/stylesheets/index.scss'
         }
       },
       dist: {
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          'public/stylesheets/index.min.css': 'public/stylesheets/_module.scss'
+          'public/stylesheets/index.min.css': 'public/stylesheets/index.scss'
         }
       }
     },
