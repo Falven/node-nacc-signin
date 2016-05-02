@@ -1,6 +1,5 @@
 #index {
   .wrapper {
-    padding: 0 0 $base-line-height 0;
     @include keypad-form-dimensions($base-line-height, $base-line-height * 3, 0px);
   }
 }

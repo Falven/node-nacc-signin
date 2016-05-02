@@ -2,8 +2,7 @@
  * Created by falven on 4/26/16.
  */
 function domLoaded() {
-    var root;
-    if(root = document.getElementById('index')) {
+    if(document.getElementById('index')) {
         new KeypadController(
             document.getElementsByClassName('text-input'),
             document.getElementsByClassName('numeric'),
@@ -11,7 +10,7 @@ function domLoaded() {
             9
         );
     } else {
-        if(root = document.getElementById('admin')) {
+        if(document.getElementById('admin')) {
             new KeypadController(
                 document.getElementsByClassName('display'),
                 document.getElementsByClassName('numeric'),
@@ -20,7 +19,8 @@ function domLoaded() {
             );
         }
     }
-    if(root = document.getElementById('mailto')) {
+    var mailTo = document.getElementById('mailto');
+    if(mailTo) {
         var email = {
             part1: 'mail',
             part2: 'to',
@@ -37,8 +37,8 @@ function domLoaded() {
             part13: '=NACC',
             part14: '%20',
             part15: 'Login'
-        }
-        root.href = email.part1 + email.part2 + email.part3 + email.part4 + email.part5 + email.part6 + email.part7 + email.part8 + email.part9 + email.part10 + email.part11 + email.part12 + email.part13 + email.part14 + email.part15;
+        };
+        mailTo.href = email.part1 + email.part2 + email.part3 + email.part4 + email.part5 + email.part6 + email.part7 + email.part8 + email.part9 + email.part10 + email.part11 + email.part12 + email.part13 + email.part14 + email.part15;
     }
 }
 

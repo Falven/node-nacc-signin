@@ -52,7 +52,7 @@ $ratio: 1.333;
 // The distance between baselines is known as line height or leading.
 // Because we want the line height to be consistent regardless of font size,
 // we’ll be using unit values to ensure this.
-$base-line-height: $base-font-size * 1.2;
+$base-line-height: $base-font-size * 1.25;
 $fixed-line-height: $base-line-height;
 
 $type-settings: (
@@ -74,13 +74,20 @@ $type-settings: (
   )
 );
 
-@function line-height($level) {
-  @return map-get(map-get($type-settings, $level), 'line-height');
+@function line-height($base-line-height, $font-size) {
+  $i: 1;
+  $line-height: $base-line-height;
+  @while($line-height < $font-size) {
+    $line-height: $base-line-height * $i;
+    $i: $i + 1;
+  }
+  @return $line-height;
 }
 
 @mixin type-setting($level) {
-  font-size: type-scale($base-font-size, $ratio, $level);
-  line-height: line-height($level);
+  $font-size: type-scale($base-font-size, $ratio, $level);
+  font-size: $font-size;
+  line-height: line-height($base-line-height, $font-size);
 }
 
 body {
