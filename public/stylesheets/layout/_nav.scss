@@ -2,9 +2,10 @@ nav {
   .wrapper {
     text-align: center;
     form {
+      height: $base-line-height * 3;
       .button-input {
         padding: $base-line-height / 2;
-        height: $base-line-height * 3;
+        height: 100%;
       }
     }
   }
