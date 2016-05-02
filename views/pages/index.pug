@@ -1,6 +1,6 @@
 extends ../layout/layout.jade
 
-include ../components/keypad.pug
+include ../components/keypad-form.pug
 
 block header
   header
@@ -10,6 +10,6 @@ block section
   section#index
     .wrapper
       unless ERROR
-        +keypad('/reason', 'post', 'Please enter your CSU Student ID to log in:')
+        +keypad-form('/reason', 'post', 'Please enter your CSU Student ID to log in:')
       else
-        +keypad('/reason', 'post', 'An invalid CSU student ID was entered, please try again:')
+        +keypad-form('/reason', 'post', 'An invalid CSU student ID was entered, please try again:')
