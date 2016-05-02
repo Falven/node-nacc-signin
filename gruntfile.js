@@ -129,7 +129,7 @@ module.exports = function (grunt) {
         options: {
           livereload: true
         },
-        files: [ 'views/**/*.pug', 'public/**/*' ]
+        files: [ 'views/**/*', 'public/**/*' ]
       }
     }
   });
