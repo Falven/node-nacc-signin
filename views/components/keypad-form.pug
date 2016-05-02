@@ -1,5 +1,5 @@
 mixin keypad-form(action, method, instructions)
-  form(action= action, method= method)
+  form.keypad-form(action= action, method= method)
     if error
       label(class="label error-text")= instructions
     else

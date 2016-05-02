@@ -2,7 +2,7 @@ $breakpoints: (
   "mobile": 0,
   "tablet": 736px,
   "laptop": 1012px,
-  "desktop": 1440px
+  "desktop": 1420px
 );
 
 @mixin respond-min($key) {
@@ -33,64 +33,29 @@ $breakpoints: (
   }
 }
 
-//@include respond-min("tablet") {
-//  #keypad > form {
-//    width: 50%;
-//  }
-//  #reason {
-//    section {
-//      width: 30%;
-//    }
-//    #peers {
-//      width: 25%;
-//    }
-//  }
-//}
-//
-//@include respond-min("laptop") {
-//  #keypad > form {
-//    width: 55%;
-//
-//    .key {
-//      font-size: 14pt;
-//    }
-//  }
-//  header {
-//    margin-top: 15px;
-//    h2 {
-//      margin: 10px 0;
-//    }
-//  }
-//  #reason {
-//    section {
-//      width: 45%;
-//    }
-//    #peers {
-//      width: 30%;
-//    }
-//  }
-//}
-//
-//@include respond-min("laptop") {
-//  #keypad > form {
-//    width: 45%;
-//
-//    .key {
-//      font-size: 14pt;
-//    }
-//  }
-//  header {
-//    margin-top: 15px;
-//    h2 {
-//      margin: 10px 0;
-//    }
-//  }
-//  #reason {
-//    section {
-//      width: 45%;
-//    }
-//    #peers {
-//      width: 30%;
-//    }
-//  }
-//}
+@include respond-min("tablet") {
+  #index {
+    .wrapper {
+      @include wrapper(40%);
+      @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 2px);
+    }
+  }
+}
+
+@include respond-min("laptop") {
+  #index {
+    .wrapper {
+      @include wrapper(40%);
+      @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 4px);
+    }
+  }
+}
+
+@include respond-min("desktop") {
+  #index {
+    .wrapper {
+      @include wrapper(55%);
+      @include keypad-form-dimensions($base-line-height, $base-line-height * 8, 6px);
+    }
+  }
+}
