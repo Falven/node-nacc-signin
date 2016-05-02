@@ -1,0 +1,15 @@
+extends ../layout/layout.jade
+
+include ../components/keypad.pug
+
+block header
+  header
+    h1.h1=title
+    h2.h2= "Welcome to the Tutoring Center."
+block section
+  section#index
+    .wrapper
+      unless ERROR
+        +keypad('/reason', 'post', 'Please enter your CSU Student ID to log in:')
+      else
+        +keypad('/reason', 'post', 'An invalid CSU student ID was entered, please try again:')

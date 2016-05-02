@@ -1,9 +1,6 @@
 #index {
-
-  section {
-    width: 75%;
-    margin: $base-line-height auto;
+  .wrapper {
+    padding: 0 0 $base-line-height 0;
     @include keypad-form(4, 3, .25);
   }
-
 }

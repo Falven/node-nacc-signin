@@ -1,0 +1,17 @@
+extends ../layout/layout.jade
+
+block header
+  header
+    h1.h1="Student # " + studentID
+    unless ERROR
+      h2.h2 Please select the reason for your visit today.
+    else
+      h2.h2 Invalid reason provided. Please try again.
+block section
+  section#reason
+    form(action="/reason/peer", method="post")
+      input.button-input.reason(type="submit", name="reason", value="Tutoring")
+    form(action="/reason/peer", method="post")
+      input.button-input.reason(type="submit", name="reason", value="Mentoring")
+    form(action="/reason/peer/confirm", method="post")
+      input.button-input.reason(type="submit", name="reason", value="Printing")

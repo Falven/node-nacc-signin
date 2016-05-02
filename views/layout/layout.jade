@@ -1,3 +1,5 @@
+include ../components/baseline.pug
+
 doctype html
 html
   head
@@ -10,4 +12,18 @@ html
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans|Montserrat', type='text/css')
     link(rel='stylesheet', href='/stylesheets/index.min.css', type='text/css')
     script(type="text/javascript" src="/javascripts/index.min.js")
-    block content
+  body
+    +baseline(50)
+    block header
+    block section
+    nav
+      .wrapper
+        form(action="/", method="post")
+          input.button-input(type="image" src="/media/back.svg" alt="Restart")
+    footer
+      ul
+        li
+          a(href="/admin") Admin
+        li
+          address
+            a#mailto(href="") Contact

@@ -1,0 +1,34 @@
+extends ../layout/layout.jade
+
+block header
+  header
+    h1.h1="Student # " + studentID
+    unless ERROR
+      h2.h2 "Invalid " + peerType + " provided. Please try again"
+    else
+      h2.h2 "Please select your " + peerType + "."
+block section
+  section#peers#admin.peers
+    form(action="/reason/peer/confirm", method="post")
+      table
+        if peerType === "tutor"
+          thead
+            tr
+              th Tutor Name
+              th Courses
+            tbody
+              each tutor in peers
+                tr
+                  td
+                    input.button.trans(id= tutor.name, type="submit" name="peer" value= tutor.name)
+                  td
+                    label(for= tutor.name)= tutor.courses
+        else
+          thead
+            tr
+              th Mentor Name
+            tbody
+              each mentor in peers
+                tr
+                  td
+                    input.button.trans(id= mentor.name, type="submit" name="peer" value= mentor.name)

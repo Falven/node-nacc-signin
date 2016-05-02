@@ -1,0 +1,9 @@
+extends ../layout/layout.jade
+
+include ../components/keypad.pug
+
+- h2 = "Administrative controls."
+
+append main
+  article#admin
+    +keypad('dashboard', 'post', 'Please enter the Administrative Pin #:')

@@ -4,32 +4,22 @@ $regular: 400;
 $bold: 600;
 
 // Base Font
-$base-font-family: sans-serif;
+$base-font-family: 'Open Sans', sans-serif;
 $base-font-weight: $regular;
-$base-font-size: 1rem;
-// base line height, which is a ratio (usually between 1.2 and 1.5)
-$base-line-height: $base-font-size * 1.25;
 $base-letter-spacing: 0;
 
 // Fixed Font
 $fixed-font-family: monospace;
 $fixed-font-size: 85%;
-$fixed-line-height: $base-line-height;
 
 // Headings
 $heading-font-family: 'Open Sans', $base-font-family;
 $heading-font-weight: $bold;
 
-$font-family: 'Open Sans', $base-font-family;
-$font-weight: $base-font-weight;
-$font-size: $base-font-size;
-$line-height: $base-line-height;
-
-// The map keys represent the power of the ratio. e.g. 1rem * 1.618 = 1.618rem
-// Because we want the line height to be consistent regardless of font size,
-// we’ll be using unit values to ensure this.
-$base: 1;
-$ratio: 1.618; // The golden ratio.
+// The base times power of the ratio. e.g. 1rem * 1.618 = 1.618rem
+$base-font-size: 1rem;
+$ratio: 1.333;
+// 1.618 - The golden ratio.
 //4   4.236 * 1.618 = 6.854
 //3   2.618 * 1.618 = 4.236
 //2   1.618 * 1.618 = 2.618
@@ -39,7 +29,7 @@ $ratio: 1.618; // The golden ratio.
 //-2   0.618 / 1.618 = 0.382
 //-3   0.382 / 1.618 = 0.236
 //-4   0.236 / 1.618 = 0.146
-@function type-setting($base, $ratio, $level) {
+@function type-scale($base, $ratio, $level) {
   $scale: $base;
   @if($level < 0) {
     $scale: $base / $ratio;
@@ -58,9 +48,12 @@ $ratio: 1.618; // The golden ratio.
   }
   @return $scale;
 }
-.test {
-  font-size: ts($base, $ratio, 2);
-}
+
+// The distance between baselines is known as line height or leading.
+// Because we want the line height to be consistent regardless of font size,
+// we’ll be using unit values to ensure this.
+$base-line-height: $base-font-size * 1.2;
+$fixed-line-height: $base-line-height;
 
 $type-settings: (
   -1: (
@@ -81,16 +74,12 @@ $type-settings: (
   )
 );
 
-@function type-scale($level) {
-  @return map-get(map-get($type-settings, $level), 'font-size');
-}
-
 @function line-height($level) {
   @return map-get(map-get($type-settings, $level), 'line-height');
 }
 
 @mixin type-setting($level) {
-  font-size: type-scale($level);
+  font-size: type-scale($base-font-size, $ratio, $level);
   line-height: line-height($level);
 }
 
@@ -100,6 +89,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  letter-spacing: $base-letter-spacing;
   @include type-setting(0);
 }
 
@@ -108,7 +100,6 @@ body {
   @include type-setting(2);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 1 * $base-line-height 0;
 }
 
 .h2 {

@@ -38,11 +38,11 @@ router.get('/', getStudentID);
 router.post('/', resetSession, getStudentID);
 
 function getStudentID(req, res, next) {
-    res.render('index', {
+    res.render('pages/index', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
-        error: req.query.error !== undefined
+        ERROR: req.query.error !== undefined
     });
 }
 
@@ -77,12 +77,12 @@ function requireStudentID(req, res, next) {
 }
 
 function getReason(req, res, next) {
-    res.render('reason', {
+    res.render('pages/reason', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
-        studentID: req.session.studentID,
-        error: req.query.error !== undefined
+        ERROR: req.query.error !== undefined,
+        studentID: req.session.studentID
     });
 }
 
@@ -115,14 +115,14 @@ function getPeer(req, res, next) {
     var reason = req.session.reason;
     var peerType = reason.toLowerCase().substr(0, reason.length - 3);
     var peers = peerType === 'tutor' ? TUTORS : MENTORS;
-    res.render('peer', {
+    res.render('pages/peer', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
+        ERROR: req.query.error !== undefined,
         studentID: req.session.studentID,
         peerType: peerType,
-        peers: peers,
-        error: req.query.error !== undefined
+        peers: peers
     });
 }
 
@@ -164,14 +164,14 @@ function requirePeer(req, res, next) {
 }
 
 function getConfirm(req, res, next) {
-    res.render('confirm', {
+    res.render('pages/confirm', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
+        ERROR: req.query.error !== undefined,
         studentID: req.session.studentID,
         reason: req.session.reason,
-        peer: req.session.peer,
-        error: req.query.error !== undefined
+        peer: req.session.peer
     });
 }
 

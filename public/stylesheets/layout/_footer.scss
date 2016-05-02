@@ -2,9 +2,10 @@ footer {
   text-align: center;
 
   form {
-    margin: 0 0 $line-height 0;
+    width: $base-line-height * 2;
+    margin: 0 0 $base-line-height 0;
     input {
-      width: 35px;
+      width: 100%;
     }
   }
 
@@ -12,7 +13,7 @@ footer {
     text-align: center;
 
     > li {
-      margin: 0 $line-height;
+      margin: 0 $base-line-height;
       display: inline;
 
       > a {
