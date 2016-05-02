@@ -1,27 +1,21 @@
 footer {
   text-align: center;
-
-  form {
-    width: $base-line-height * 2;
-    margin: 0 0 $base-line-height 0;
-    input {
-      width: 100%;
-    }
-  }
-
+  padding: $base-line-height 0;
   ul {
     text-align: center;
-
-    > li {
-      margin: 0 $base-line-height;
+    li {
       display: inline;
-
-      > a {
+      margin: 0 $base-line-height / 2;
+      a {
         font-size: 12pt;
         color: $accent-color;
         display: inline-block;
         white-space: nowrap;
         text-decoration: none;
+        display: inline;
+      }
+      address {
+        display: inline;
       }
     }
   }

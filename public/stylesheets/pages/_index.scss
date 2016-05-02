@@ -1,6 +1,6 @@
 #index {
   .wrapper {
     padding: 0 0 $base-line-height 0;
-    @include keypad-form(4, 3, $base-line-height, $base-line-height * 3, $base-line-height / 6);
+    @include keypad-form(4, 3, $base-line-height, $base-line-height * 3, 0px);
   }
 }

@@ -18,7 +18,7 @@
 
     .keys {
       width: 100%;
-      height: $key-height * $rows + $margin * $rows;
+      height: calc(#{$key-height * $rows} + #{$margin * $rows});
       display: flex;
       justify-content: space-between;
       align-items: baseline;
