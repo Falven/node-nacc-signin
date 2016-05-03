@@ -26,10 +26,16 @@ var NACC = {
     init: function(element) {
       if(window.jQuery) {
         new EditableTableController(
-          '#tutors-table'
+          '#tutors-table',
+          '/admin/dashboard/tutors',
+          'Tutors sucessfully updated!',
+          'Failed to update Tutors.'
         );
         new EditableTableController(
-          '#mentors-table'
+          '#mentors-table',
+          '/admin/dashboard/mentors',
+          'Mentors sucessfully updated!',
+          'Failed to update Mentors.'
         );
       }
     }

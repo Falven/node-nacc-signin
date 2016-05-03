@@ -3,6 +3,7 @@ $primary-color: #222;
 $secondary-color: #fff;
 $tertiary-color: #ddd;
 $error-color: #d33526;
+$success-color: #27ae60;
 
 body {
   color: $primary-color;
@@ -10,4 +11,8 @@ body {
 
 .error-text {
   color: $error-color;
+}
+
+.success-text {
+  color: $success-color;
 }

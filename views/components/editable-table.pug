@@ -4,7 +4,7 @@ mixin editable-table(tableId, tableCaption, tableItems)
     thead.thead
       th.th Name
       th.th Description
-      th.add.td
+      th.th.add.td
         img(src="/media/add-dark.svg" alt="Add Row")
     tbody
       each row in tableItems
@@ -22,5 +22,6 @@ mixin editable-table(tableId, tableCaption, tableItems)
       tr
         td.td
         td.td
+          p.information
         td.save.td
           button.button(type="button") Save

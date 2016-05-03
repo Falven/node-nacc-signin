@@ -66,7 +66,7 @@ function setPin(req, res, next) {
 }
 
 function requirePin(req, res, next) {
-    if(req.session.pin) {
+    if(isValidPin(req.session.pin)) {
         next();
     } else {
         res.redirect('/admin' + app.locals.errorQuery);
@@ -84,13 +84,15 @@ function getDashboard(req, res, next) {
     });
 }
 
-router.post('/dashboard/peers', requirePin, setPeers);
 router.post('/dashboard/tutors', requirePin, setTutors);
+router.post('/dashboard/mentors', requirePin, setMentors);
 
-function setPeers() {
-    app.locals.peers = req.body.peers;
+function setTutors(req, res, next) {
+    app.locals.tutors = req.body;
+    res.status(200).end();
 }
 
-function setTutors() {
-    app.locals.tutors = req.body.tutors;
+function setMentors(req, res, next) {
+    app.locals.mentors = req.body;
+    res.status(200).end();
 }
