@@ -1,0 +1,9 @@
+mixin name-submit-list-item(imageSrc, name, description, buttonName)
+  li.name-li
+    figure
+      .portrait
+        img(src=imageSrc, alt=name)
+      .description
+        figcaption.name=peer.name
+        p.p.description=description
+      button.select(name=buttonName value=name type="submit") Select

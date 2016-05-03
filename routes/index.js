@@ -86,8 +86,8 @@ function getReason(req, res, next) {
     });
 }
 
-router.post('/reason/peer', requireStudentID, setReason, requireReason, getPeer);
-router.get('/reason/peer', requireStudentID, requireReason, getPeer);
+router.post('/reason/peers', requireStudentID, setReason, requireReason, getPeer);
+router.get('/reason/peers', requireStudentID, requireReason, getPeer);
 
 function isValidReason(reason) {
     return reason && REASONS.indexOf(reason) != -1;
@@ -115,7 +115,7 @@ function getPeer(req, res, next) {
     var reason = req.session.reason;
     var peerType = reason.toLowerCase().substr(0, reason.length - 3);
     var peers = peerType === 'tutor' ? TUTORS : MENTORS;
-    res.render('pages/peer', {
+    res.render('pages/peers', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
@@ -126,8 +126,8 @@ function getPeer(req, res, next) {
     });
 }
 
-router.post('/reason/peer/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
-router.get('/reason/peer/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession);
+router.post('/reason/peers/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
+router.get('/reason/peers/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession);
 
 function isValidPeer(peer) {
     return peer && true;
@@ -150,7 +150,7 @@ function setPeer(req, res, next) {
             req.session.peer = peer;
             next();
         } else {
-            res.redirect('/reason/peer' + ERROR_QUERY);
+            res.redirect('/reason/peers' + ERROR_QUERY);
         }
     }
 }
@@ -159,7 +159,7 @@ function requirePeer(req, res, next) {
     if(req.session.peer || req.session.reason === 'Printing') {
         next();
     } else {
-        res.redirect('/reason/peer' + ERROR_QUERY);
+        res.redirect('/reason/peers' + ERROR_QUERY);
     }
 }
 

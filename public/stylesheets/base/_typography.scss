@@ -110,11 +110,15 @@ body {
 }
 
 .h2 {
+  @include type-setting(1);
+  font-weight: $regular;
+}
+
+.h3 {
   @include type-setting(0);
   font-weight: $regular;
 }
 
 .p, .label {
   @include type-setting(-1);
-  margin: 0 0 $base-line-height 0;
 }

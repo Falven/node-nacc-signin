@@ -1,26 +1,16 @@
 #reason {
-
-  .p {
-    text-align: center;
-    margin: $base-line-height 0;
-  }
-
-  section {
-    width: 65%;
-    margin: $base-line-height auto;
-
+  .wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     form {
-      display: flex;
-      flex-flow: row;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: $base-line-height;
-
       .reason {
-        width: 100%;
+        min-width: $base-line-height * 10;
+        height: $base-line-height * 3;
         padding: $base-line-height;
-        @include type-setting(-1);
+        margin-bottom: $base-line-height;
       }
     }
   }

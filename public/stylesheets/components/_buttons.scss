@@ -41,8 +41,13 @@ $button-border-style: solid;
   @include button-base($text-color, $text-color, transparent, $text-color-hover, $text-color, $text-color);
 }
 
+@mixin transparent-button($text-color) {
+  @include button-theme($text-color, transparent, transparent);
+}
+
 .button {
   @extend %button-base;
+  @include type-setting(-1);
   @include border-button($primary-color, $accent-color);
   &.secondary {
     @include border-button($secondary-color, $accent-color);

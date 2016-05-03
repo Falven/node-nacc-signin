@@ -1,0 +1,18 @@
+extends ../layout/layout.jade
+
+include ../components/name-submit-list-item.pug
+
+block header
+  header
+    h1.h1="Student # " + studentID
+      unless ERROR
+        h3.h3 "Invalid #{peerType} provided. Please try again"
+      else
+        h3.h3 "Please select your #{peerType}."
+block section
+  section#peers
+    .wrapper
+      ul
+        form(action="/reason/peer/submit", method="post")
+          each peer in peers
+            +name-submit-list-item("/media/account.svg", peer.name, (peerType === "tutor" ? peer.courses : ""), "peer")

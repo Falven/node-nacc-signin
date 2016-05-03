@@ -1,0 +1,51 @@
+$button-padding: 0;
+$button-text-transform: capitalize;
+$name-item-color: $primary-color;
+$name-item-background-color: $secondary-color;
+
+.name-li {
+  margin-bottom: $base-line-height;
+  color: $name-item-color;
+  background-color: $name-item-background-color;
+
+  figure {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    .portrait {
+      width: 25%;
+      height: 100%;
+      img {
+        text-align: center;
+        // TODO vertically-center alt text.
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .description {
+      width: 50%;
+      .name {
+      }
+      .description {
+      }
+    }
+
+    .select {
+      @include transparent-button($name-item-color);
+      height: 100%;
+      width: 25%;
+    }
+  }
+}
+
+@mixin name-selection-list-item($height) {
+  .name-li {
+    figure {
+      height: $height;
+    }
+  }
+}
