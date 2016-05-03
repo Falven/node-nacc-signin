@@ -1,0 +1,517 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.776889rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.h2 {
+  font-size: 1.333rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+}
+
+.h3 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.p, .label {
+  font-size: 0.7501875469rem;
+  line-height: 1.25rem;
+}
+
+body {
+  color: #222;
+}
+
+.error-text {
+  color: #d33526;
+}
+
+.success-text {
+  color: #27ae60;
+}
+
+.wrapper {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button, .button-input {
+  display: inline-block;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: capitalize;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.button, .button-input {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #222;
+  border-color: #222;
+  background-color: #fff;
+}
+
+.button:hover, .button-input:hover {
+  color: #fff;
+  border-color: #222;
+  background-color: #ddd;
+}
+
+.button-input, .text-input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+}
+
+.text-input {
+  color: #222;
+  border-color: #222;
+  background-color: #fff;
+}
+
+.keypad-form {
+  width: 100%;
+  height: 100%;
+}
+
+.keypad-form .label {
+  display: block;
+}
+
+.keypad-form .display {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.keypad-form .keys {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.name-li {
+  margin-bottom: 1.25rem;
+  color: #222;
+  background-color: #fff;
+}
+
+.name-li figure {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+}
+
+.name-li figure .portrait {
+  width: 25%;
+  height: 100%;
+}
+
+.name-li figure .portrait img {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.name-li figure .description {
+  width: 50%;
+}
+
+.name-li figure .select {
+  height: 100%;
+  width: 25%;
+}
+
+.editable-table {
+  width: 100%;
+  text-align: left;
+  border: 1px solid #ccc;
+  margin-bottom: 1.25rem;
+}
+
+.editable-table .caption, .editable-table .th {
+  font-weight: 600;
+  text-align: inherit;
+}
+
+.editable-table .caption {
+  margin-bottom: 1.25rem;
+}
+
+.editable-table .tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+.editable-table .th, .editable-table .tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.editable-table .th:not(:last-child), .editable-table .td:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+
+.editable-table .th, .editable-table .td {
+  vertical-align: middle;
+  padding: 0.625rem;
+}
+
+.editable-table .add, .editable-table .remove {
+  cursor: pointer;
+}
+
+.editable-table .add, .editable-table .remove, .editable-table .save {
+  text-align: center;
+}
+
+.editable-table .clone {
+  display: none !important;
+}
+
+.editable-table .save .button, .editable-table .save .button-input {
+  padding: 0.625rem 1.25rem;
+}
+
+header {
+  text-align: center;
+  padding: 1.25rem 0;
+}
+
+header .h1 {
+  margin-bottom: 1.25rem;
+}
+
+nav .wrapper {
+  text-align: center;
+}
+
+nav .wrapper form {
+  height: 3.75rem;
+}
+
+nav .wrapper form .button-input {
+  padding: 0.625rem;
+  height: 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 1.25rem 0;
+}
+
+footer ul {
+  text-align: center;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 0.625rem;
+}
+
+footer ul li a {
+  font-size: 12pt;
+  color: #222;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+footer ul li address {
+  display: inline;
+}
+
+#index .wrapper {
+  margin-bottom: 1.25rem;
+}
+
+#index .wrapper .keypad-form .display {
+  height: 1.25rem;
+  margin-bottom: 0px;
+}
+
+#index .wrapper .keypad-form .keys {
+  height: calc(15rem + 0px);
+}
+
+#index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+  width: calc((100% / 3) - 0px);
+  height: 3.75rem;
+}
+
+#reason .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+#reason .wrapper form .reason {
+  min-width: 12.5rem;
+  height: 3.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+#peers .wrapper {
+  width: 35%;
+  margin-bottom: 1.25rem;
+}
+
+#peers .wrapper .name-li figure {
+  height: 5rem;
+}
+
+#confirm .wrapper .confirmation {
+  width: 35%;
+  margin: 0 auto 1.25rem auto;
+}
+
+#confirm .wrapper .confirmation img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+#confirm .wrapper h2 {
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+}
+
+.wrapper {
+  margin-bottom: 1.25rem;
+}
+
+.wrapper .button, .wrapper .button-input {
+  padding: 0.625rem 1.25rem;
+}
+
+#admin .wrapper {
+  margin-bottom: 1.25rem;
+}
+
+#admin .wrapper .keypad-form .display {
+  height: 1.25rem;
+  margin-bottom: 0px;
+}
+
+#admin .wrapper .keypad-form .keys {
+  height: calc(15rem + 0px);
+}
+
+#admin .wrapper .keypad-form .keys .numeric, #admin .wrapper .keypad-form .keys .enter, #admin .wrapper .keypad-form .keys .reset {
+  width: calc((100% / 3) - 0px);
+  height: 3.75rem;
+}
+
+@media only screen and (min-width: 736px) {
+  #index .wrapper {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #index .wrapper .keypad-form .display {
+    height: 1.25rem;
+    margin-bottom: 4px;
+  }
+  #index .wrapper .keypad-form .keys {
+    height: calc(20rem + 8px);
+  }
+  #index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+    width: calc((100% / 3) - 2px);
+    height: 5rem;
+  }
+}
+
+@media only screen and (min-width: 1012px) {
+  #index .wrapper {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #index .wrapper .keypad-form .display {
+    height: 1.25rem;
+    margin-bottom: 8px;
+  }
+  #index .wrapper .keypad-form .keys {
+    height: calc(20rem + 16px);
+  }
+  #index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+    width: calc((100% / 3) - 4px);
+    height: 5rem;
+  }
+}
+
+@media only screen and (min-width: 1420px) {
+  #index .wrapper {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #index .wrapper .keypad-form .display {
+    height: 1.25rem;
+    margin-bottom: 12px;
+  }
+  #index .wrapper .keypad-form .keys {
+    height: calc(40rem + 24px);
+  }
+  #index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+    width: calc((100% / 3) - 6px);
+    height: 10rem;
+  }
+}
+
+.baseline-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.guide {
+  margin-bottom: 1.25rem;
+}
+
+.guide, .guide:before, .guide:after {
+  height: 1.25rem;
+  width: 100%;
+  outline: 1px solid turquoise;
+}
+
+.guide:before, .guide:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 200%;
+}
+
+.guide:after {
+  top: 400%;
+}
