@@ -35,7 +35,7 @@ $keypad-form-cols: 3;
 
     .keys {
       height: calc(#{$key-height * $keypad-form-rows} + #{$margin * $keypad-form-rows});
-      .button-input {
+      .numeric, .enter, .reset {
         width: calc((100% / #{$keypad-form-cols}) - #{$margin});
         height: $key-height;
       }

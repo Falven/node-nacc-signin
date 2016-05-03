@@ -4,30 +4,43 @@
   border: 1px solid #ccc;
   margin-bottom: $base-line-height;
 
-  .editable-row:nth-child(odd) {
-    background-color: #f1f1f1;
-  }
-
-  .editable-head, .editable-row {
-    border-bottom: 1px solid #ddd;
-  }
-
-  .th, .editable-td {
-    vertical-align: middle;
-    padding-left: $base-line-height;
-  }
-
-  .editable-caption {
+  .caption, .th {
+    font-weight: $bold;
     text-align: inherit;
   }
 
-  .editable-add, .editable-remove {
+  .caption {
+    margin-bottom: $base-line-height;
+  }
+
+  .tr:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+
+  .th, .tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .th:not(:last-child), .td:not(:last-child) {
+    border-right: 1px solid #ddd;
+  }
+
+  .th, .td {
+    vertical-align: middle;
+    padding: $base-line-height / 2;
+  }
+
+  .add, .remove {
     cursor: pointer;
   }
-}
 
-.editable-table-save-button {
-  padding: $base-line-height / 2 $base-line-height;
-  margin-bottom: $base-line-height;
-  @include type-setting(0);
+  .add, .remove, .save {
+    text-align: center;
+  }
+
+  .save {
+    .button {
+      padding: $base-line-height / 2 $base-line-height;
+    }
+  }
 }

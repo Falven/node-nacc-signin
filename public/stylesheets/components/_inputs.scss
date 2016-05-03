@@ -29,32 +29,6 @@ $input-border-radius: 0;
   background-color: $background-color;
 }
 
-@mixin border-button-input-base(
-  $text-color: null,
-  $border-color: null,
-  $background-color: null,
-  $hover-text-color: null,
-  $hover-border-color: null,
-  $hover-background-color: null) {
-
-  @include input-theme($text-color, $border-color, $background-color);
-  &:hover {
-    @include input-theme($hover-text-color, $hover-border-color, $hover-background-color);
-  }
-}
-
-@mixin button-input-base(
-  $text-color: null,
-  $border-color: null,
-  $background-color: null,
-  $hover-background-color: null) {
-
-  @include input-theme($text-color, $border-color, $background-color);
-  &:active {
-    @include input-theme($text-color, $border-color, $hover-background-color);
-  }
-}
-
 @mixin text-input-base(
   $text-color: null,
   $border-color: null,
@@ -64,20 +38,15 @@ $input-border-radius: 0;
 }
 
 .button-input {
+  @extend .button;
   @extend %input-base;
-  @include button-input-base(
-    $text-color: $text-color-light,
-    $border-color: $accent-color,
-    $background-color: $secondary-color,
-    $hover-background-color: $accent-color
-  );
 }
 
 .text-input {
   @extend %input-base;
   @include text-input-base(
     $text-color: $primary-color,
-    $border-color: $accent-color,
+    $border-color: $primary-color,
     $background-color: $secondary-color
   );
 }

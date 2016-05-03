@@ -1,16 +1,21 @@
 mixin editable-table(tableCaption, tableItems)
   table.editable-table
-      caption.editable-caption= tableCaption
-      thead.editable-head
-        th.th Name
-        th.th Description
-        th.editable-add
-          img(src="/media/add.svg" alt="Add Row")
-      tbody
-        each row in tableItems
-          tr.editable-row
-            td.editable-td(contenteditable="true")= row.name
-            td.editable-td(contenteditable="true")= row.description
-            td.editable-remove
-              img(src="/media/remove.svg" alt="Remove Row")
-  button.button.editable-table-save-button(type="button") Save
+    caption.caption= tableCaption
+    thead.thead
+      th.th Name
+      th.th Description
+      th.add.td
+        img(src="/media/add.svg" alt="Add Row")
+    tbody
+      each row in tableItems
+        tr.tr
+          td.td(contenteditable="true")= row.name
+          td.td(contenteditable="true")= row.description
+          td.remove.td
+            img(src="/media/remove.svg" alt="Remove Row")
+    tfoot
+      tr
+        td.td
+        td.td
+        td.save.td
+          button.button(type="button") Save

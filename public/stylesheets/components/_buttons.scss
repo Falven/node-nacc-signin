@@ -37,19 +37,21 @@ $button-border-style: solid;
 
 }
 
-@mixin border-button($text-color, $text-color-hover) {
+@mixin invert-button($text-color, $text-color-hover) {
   @include button-base($text-color, $text-color, transparent, $text-color-hover, $text-color, $text-color);
 }
 
-@mixin transparent-button($text-color) {
-  @include button-theme($text-color, transparent, transparent);
+@mixin border-button($text-color, $background-color, $text-color-hover, $background-color-hover) {
+
+  @include button-theme($text-color, $text-color, $background-color);
+  &:hover {
+    @include button-theme($text-color-hover, $text-color, $background-color-hover);
+  }
+
 }
 
 .button {
   @extend %button-base;
-  @include type-setting(-1);
-  @include border-button($primary-color, $accent-color);
-  &.secondary {
-    @include border-button($secondary-color, $accent-color);
-  }
+  @include type-setting(0);
+  @include border-button($primary-color, $secondary-color, $secondary-color, $tertiary-color);
 }
