@@ -18,7 +18,7 @@ function getAdmin(req, res, next) {
     });
 }
 
-router.post('/dashboard');
+router.post('/dashboard', getDashboard);
 router.get('/dashboard');
 
 function getDashboard(req, res, next) {

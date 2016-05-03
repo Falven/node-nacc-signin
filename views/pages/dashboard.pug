@@ -1,1 +1,12 @@
 extends ../layout/layout.jade
+
+include ../components/editable-table.pug
+
+block header
+  header
+    h1.h1=title
+    h2.h2 Administrative Dashboard.
+block section
+  section#dashboard
+    .wrapper
+      +editable-table
