@@ -1,0 +1,21 @@
+{
+  "name": "nacc-signin",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Francisco Aguilera <Falven2000@Hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Falven/node-nacc-signin",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}
