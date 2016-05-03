@@ -4,8 +4,8 @@ var express = require('express');
 var router = module.exports = express.Router();
 
 const STUDENT_ID_LENGTH = 9;
-const ERROR_QUERY = '?error=1';
 
+app.locals.errorQuery = '?error=1';
 app.locals.reasons = ['Tutoring', 'Mentoring', 'Printing'];
 
 router.get('/', getStudentID);
@@ -36,17 +36,15 @@ function setStudentID(req, res, next) {
     var studentID = req.body.pin;
     if(isValidID(studentID)) {
         req.session.studentID = studentID;
-        next();
-    } else {
-        res.redirect('/' + ERROR_QUERY);
     }
+    next();
 }
 
 function requireStudentID(req, res, next) {
     if(req.session.studentID) {
         next();
     } else {
-        res.redirect('/' + ERROR_QUERY);
+        res.redirect('/' + app.locals.errorQuery);
     }
 }
 
@@ -71,17 +69,15 @@ function setReason(req, res, next) {
     var reason = req.body.reason;
     if(isValidReason(reason)) {
         req.session.reason = reason;
-        next();
-    } else {
-        res.redirect('/reason' + ERROR_QUERY);
     }
+    next();
 }
 
 function requireReason(req, res, next) {
     if(req.session.reason) {
         next();
     } else {
-        res.redirect('/reason' + ERROR_QUERY);
+        res.redirect('/reason' + app.locals.errorQuery);
     }
 }
 
@@ -100,14 +96,14 @@ function getPeer(req, res, next) {
     });
 }
 
-router.post('/reason/peers/confirm', trySetPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
+router.post('/reason/peers/confirm', setPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
 router.get('/reason/peers/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession);
 
 function isValidPeer(peer) {
     return peer && true;
 }
 
-function trySetPrintingReason(req, res, next) {
+function setPrintingReason(req, res, next) {
     var reason = req.body.reason;
     if(reason === 'Printing') {
         req.session.reason = reason;
@@ -116,24 +112,18 @@ function trySetPrintingReason(req, res, next) {
 }
 
 function setPeer(req, res, next) {
-    if(req.session.reason === 'Printing') {
-        next();
-    } else {
-        var peer = req.body.peer;
-        if(isValidPeer(peer)) {
-            req.session.peer = peer;
-            next();
-        } else {
-            res.redirect('/reason/peers' + ERROR_QUERY);
-        }
+    var peer = req.body.peer;
+    if(isValidPeer(peer)) {
+        req.session.peer = peer;
     }
+    next();
 }
 
 function requirePeer(req, res, next) {
     if(req.session.peer || req.session.reason === 'Printing') {
         next();
     } else {
-        res.redirect('/reason/peers' + ERROR_QUERY);
+        res.redirect('/reason/peers' + app.locals.errorQuery);
     }
 }
 
