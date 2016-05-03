@@ -26,10 +26,10 @@ var NACC = {
     init: function(element) {
       if(window.jQuery) {
         new EditableTableController(
-          '.editable-table',
-          '.add',
-          '.remove',
-          '.save'
+          '#tutors-table'
+        );
+        new EditableTableController(
+          '#mentors-table'
         );
       }
     }

@@ -1,14 +1,14 @@
-function EditableTableController(tableClass, addRowClass, removeRowClass, saveButtonClass) {
-  var table = $(tableClass);
-  var saveButton = $(saveButtonClass);
+function EditableTableController(tableId) {
+  var table = $(tableId);
+  var saveButton = $(tableId + " .save");
 
-  $(addRowClass).click(function() {
-    var clone = table.find('tr.clone').clone(true).removeClass('clone');
+  var addButton = $(tableId + " .add");
+
+  $(tableId + " .add").click(function() {
+    var clone = table.find('.clone').clone(true).removeClass('clone');
     table.find('tbody').append(clone);
   });
 
-  var remove = $(removeRowClass);
-  if(remove) {
-
-  }
+  $(tableId + " .remove").click(function() {
+  });
 }

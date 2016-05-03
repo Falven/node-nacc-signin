@@ -61,6 +61,10 @@ module.exports = function (grunt) {
       }
     },
 
+    clean: {
+      dist: 'public/javascripts/index.min.js'
+    },
+
     concat: {
       dist: {
         src: [ 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ],
@@ -123,7 +127,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: [ 'Gruntfile.js', 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ],
-        tasks: [ 'jshint:dev', 'concat:dist', 'uglify:dev' ]
+        tasks: [ 'jshint:dev', 'clean:dist', 'concat:dist', 'uglify:dev' ]
       },
       livereload: {
         options: {
@@ -139,6 +143,7 @@ module.exports = function (grunt) {
     'sass:dev',
     'postcss:dev',
     'jshint:dev',
+    'clean:dist',
     'concat:dist',
     'uglify:dev'
   ]);
@@ -150,6 +155,7 @@ module.exports = function (grunt) {
     'sass:dist',
     'postcss:dist',
     'jshint:dev',
+    'clean:dist',
     'concat:dist',
     'uglify:dist'
   ]);
