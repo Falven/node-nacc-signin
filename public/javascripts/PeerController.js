@@ -1,4 +1,4 @@
-function ReasonController(tutoringButton, mentoringButton, printingButton, table) {
+function PeerController(tutoringButton, mentoringButton, printingButton, table) {
     var tableHidden = true,
         tableOwner;
 

@@ -13,6 +13,11 @@ mixin editable-table(tableCaption, tableItems)
           td.td(contenteditable="true")= row.description
           td.remove.td
             img(src="/media/remove-dark.svg" alt="Remove Row")
+        tr.tr.clone
+          td.td(contenteditable="true")= row.name
+          td.td(contenteditable="true")= row.description
+          td.remove.td
+            img(src="/media/remove-dark.svg" alt="Remove Row")
     tfoot
       tr
         td.td

@@ -24,12 +24,14 @@ var NACC = {
   },
   dashboard: {
     init: function(element) {
+      if(window.jQuery) {
         new EditableTableController(
           '.editable-table',
-          '.add-editable-row',
-          '.remove-editable-row',
-          '.save-editable-table-button'
+          '.add',
+          '.remove',
+          '.save'
         );
+      }
     }
   },
   mailto: {

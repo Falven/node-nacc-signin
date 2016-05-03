@@ -38,6 +38,10 @@
     text-align: center;
   }
 
+  .clone {
+    display: none !important;
+  }
+
   .save {
     .button {
       padding: $base-line-height / 2 $base-line-height;
