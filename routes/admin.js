@@ -4,6 +4,7 @@
 
 var app = require('../app');
 var express = require('express');
+var fs = require('fs');
 
 var router = module.exports = express.Router();
 
@@ -95,4 +96,12 @@ function setTutors(req, res, next) {
 function setMentors(req, res, next) {
     app.locals.mentors = req.body;
     res.status(200).end();
+}
+
+router.get('/dashboard/students', requirePin, getStudents);
+
+function getStudents(req, res, next) {
+    app.openStudents(function(workbook) {
+        res.download(app.locals.studentFile);
+    });
 }

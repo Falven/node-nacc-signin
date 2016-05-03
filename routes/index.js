@@ -35,7 +35,7 @@ function isValidID(studentID) {
 function setStudentID(req, res, next) {
     var studentID = req.body.pin;
     if(isValidID(studentID)) {
-        req.session.studentID = studentID;
+        req.session.studentID = parseInt(studentID);
     }
     next();
 }
@@ -137,8 +137,23 @@ function getConfirm(req, res, next) {
         reason: req.session.reason,
         peer: req.session.peer
     });
+    next();
 }
 
 function logSession(req, res, next) {
-    next();
+    app.openStudents(function() {
+        app.locals.worksheet.addRow(
+          {
+              date: new Date(),
+              studentID: req.session.studentID,
+              reason: req.session.reason,
+              peer: req.session.peer
+          }).commit();
+        app.locals.workbook.xlsx.writeFile(app.locals.workbookPath)
+          .then(function() {
+              console.log('success.');
+          }, function() {
+              console.log('failed.');
+          });
+    });
 }

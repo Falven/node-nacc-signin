@@ -11,3 +11,5 @@ block section
     .wrapper
       +editable-table("tutors-table", "Tutors", tutors)
       +editable-table("mentors-table", "Mentors", mentors)
+      form(method="get" action="/admin/dashboard/students")
+        button.button(type="submit") Download Excel...

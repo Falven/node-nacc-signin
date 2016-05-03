@@ -32,7 +32,6 @@ function EditableTableController(tableId, postUrl, success, failure) {
       url: postUrl,
       data: jstring,
       contentType: 'application/json',
-      dataType: "json",
       success: function(data) {
         information.addClass('success-text');
         information.removeClass('error-text');
