@@ -5,5 +5,5 @@ mixin name-submit-list-item(imageSrc, name, description, buttonName)
         img(src=imageSrc, alt=name)
       .description
         figcaption.name=peer.name
-        p.p.description=description
+        p.p.description=peer.description
       button.button.select(name=buttonName value=name type="submit") Select

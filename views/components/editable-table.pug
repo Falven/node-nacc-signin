@@ -5,14 +5,14 @@ mixin editable-table(tableCaption, tableItems)
       th.th Name
       th.th Description
       th.add.td
-        img(src="/media/add.svg" alt="Add Row")
+        img(src="/media/add-dark.svg" alt="Add Row")
     tbody
       each row in tableItems
         tr.tr
           td.td(contenteditable="true")= row.name
           td.td(contenteditable="true")= row.description
           td.remove.td
-            img(src="/media/remove.svg" alt="Remove Row")
+            img(src="/media/remove-dark.svg" alt="Remove Row")
     tfoot
       tr
         td.td

@@ -1,5 +1,6 @@
 #peers {
   .wrapper {
+    width: 35%;
     margin-bottom: $base-line-height;
     @include name-submit-list-item-dimensions($base-line-height * 4);
   }
