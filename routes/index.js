@@ -4,35 +4,9 @@ var express = require('express');
 var router = module.exports = express.Router();
 
 const STUDENT_ID_LENGTH = 9;
-const REASONS = ['Tutoring', 'Mentoring', 'Printing'];
 const ERROR_QUERY = '?error=1';
 
-const TUTORS = [
-    {
-        name: 'Rick Sanchez',
-        courses: 'Science, Technology'
-    },
-    {
-        name: 'Morty Smith',
-        courses: 'Politics'
-    },
-    {
-        name: 'Tammy Gueterman',
-        courses: 'Art'
-    }
-];
-
-const MENTORS = [
-    {
-        name: 'Eric Cartman'
-    },
-    {
-        name: 'Morty Smith'
-    },
-    {
-        name: 'Tammy Gueterman'
-    }
-];
+app.locals.reasons = ['Tutoring', 'Mentoring', 'Printing'];
 
 router.get('/', getStudentID);
 router.post('/', resetSession, getStudentID);
@@ -90,7 +64,7 @@ router.post('/reason/peers', requireStudentID, setReason, requireReason, getPeer
 router.get('/reason/peers', requireStudentID, requireReason, getPeer);
 
 function isValidReason(reason) {
-    return reason && REASONS.indexOf(reason) != -1;
+    return reason && app.locals.reasons.indexOf(reason) != -1;
 }
 
 function setReason(req, res, next) {
@@ -114,7 +88,7 @@ function requireReason(req, res, next) {
 function getPeer(req, res, next) {
     var reason = req.session.reason;
     var peerType = reason.toLowerCase().substr(0, reason.length - 3);
-    var peers = peerType === 'tutor' ? TUTORS : MENTORS;
+    var peers = peerType === 'tutor' ? app.locals.tutors : app.locals.mentors;
     res.render('pages/peers', {
         title: app.locals.title,
         description: app.locals.description,

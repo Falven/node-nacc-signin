@@ -1,18 +1,8 @@
+extends head.jade
+
 include ../components/baseline.pug
 
-doctype html
-html
-  head
-    meta(charset="UTF-8")
-    meta(name="description", content=description)
-    meta(name="keywords", content=keywords)
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title= title
-    meta(name="viewport" content="width=device-width, user-scalable=no")
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans|Montserrat', type='text/css')
-    link(rel='stylesheet', href='/stylesheets/index.min.css', type='text/css')
-    script(type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js")
-    script(type="text/javascript" src="/javascripts/index.min.js")
+block body
   body
     //+baseline(50)
     block header
