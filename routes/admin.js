@@ -52,12 +52,12 @@ router.post('/dashboard', getDashboard);
 router.get('/dashboard');
 
 function getDashboard(req, res, next) {
-    var peers = app.locals.tutors.concat(app.locals.mentors);
     res.render('pages/dashboard', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined,
-        peers: peers
+        tutors: app.locals.tutors,
+        mentors: app.locals.mentors
     });
 }

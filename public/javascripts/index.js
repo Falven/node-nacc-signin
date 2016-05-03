@@ -25,10 +25,10 @@ var NACC = {
   dashboard: {
     init: function(element) {
         new EditableTableController(
-          'editable-table',
+          '.editable-table',
           '.add-editable-row',
           '.remove-editable-row',
-          'save-editable-table-button'
+          '.save-editable-table-button'
         );
     }
   },

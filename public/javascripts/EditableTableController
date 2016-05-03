@@ -1,3 +1,3 @@
-function EditableTableController(tableId, addRowClass, removeRowClass, saveButton) {
-  
+function EditableTableController(tableClass, addRowClass, removeRowClass, saveButtonClass) {
+
 }

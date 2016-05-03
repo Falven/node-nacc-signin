@@ -1,14 +1,16 @@
-mixin editable-table(tableItems)
-  table#editable-table
-      thead
-        th Name
-        th Description
-        th
-          img.add-editable-row(src="/media/add.svg" alt="Add Row")
-      each row in tableItems
-        tr
-          td(contenteditable="true") row.name
-          td(contenteditable="true") row.description
-          td
-            img.remove-editable-row(src="/media/remove.svg" alt="Remove Row")
-  button.button#save-editable-table-button(type="button") Save
+mixin editable-table(tableCaption, tableItems)
+  table.editable-table
+      caption.editable-caption= tableCaption
+      thead.editable-head
+        th.th Name
+        th.th Description
+        th.editable-add
+          img(src="/media/add.svg" alt="Add Row")
+      tbody
+        each row in tableItems
+          tr.editable-row
+            td.editable-td(contenteditable="true")= row.name
+            td.editable-td(contenteditable="true")= row.description
+            td.editable-remove
+              img(src="/media/remove.svg" alt="Remove Row")
+  button.button.editable-table-save-button(type="button") Save
