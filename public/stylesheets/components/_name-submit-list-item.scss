@@ -41,7 +41,7 @@ $name-item-background-color: $secondary-color;
   }
 }
 
-@mixin name-selection-list-item($height) {
+@mixin name-submit-list-item-dimensions($height) {
   .name-li {
     figure {
       height: $height;
