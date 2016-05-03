@@ -6,13 +6,13 @@ block header
   header
     h1.h1="Student # " + studentID
       unless ERROR
-        h3.h3 "Invalid #{peerType} provided. Please try again"
+        h3.h3 Please select your #{peerType}.
       else
-        h3.h3 "Please select your #{peerType}."
+        h3.h3.error-text Invalid #{peerType} provided. Please try again.
 block section
   section#peers
     .wrapper
       ul
-        form(action="/reason/peer/submit", method="post")
+        form(action="/reason/peers/confirm", method="post")
           each peer in peers
             +name-submit-list-item("/media/account.svg", peer.name, (peerType === "tutor" ? peer.courses : ""), "peer")

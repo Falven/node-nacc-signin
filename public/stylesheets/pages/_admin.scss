@@ -1,0 +1,6 @@
+#admin {
+  .wrapper {
+    margin-bottom: $base-line-height;
+    @include keypad-form-dimensions($base-line-height, $base-line-height * 3, 0px);
+  }
+}

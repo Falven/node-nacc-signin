@@ -2,13 +2,14 @@ extends ../layout/layout.jade
 
 block header
   header
-    h1.h1="Student # " + studentID
-    h2.h2 "You have successfully signed in!"
+    h1.h1=title
+    h2.h2 Welcome to the Tutoring Center.
 block section
   section#confirm.peers
-    figure.confirmation
-      img(src="/media/confirm.svg" alt="Confirmation Image")
-  if reason == "Tutoring" || reason == "Mentoring"
-    h2 You may now go see #{peer}. Good luck!
-  else
-    h2 Please proceed to the computer bay.<br>Happy printing!
+    .wrapper
+      figure.confirmation
+        img(src="/media/confirm.svg" alt="Confirmation Image")
+      if reason == "Tutoring" || reason == "Mentoring"
+        h2 You may now go see #{peer}.<br>Good luck!
+      else
+        h2 Please proceed to the computer bay.<br>Happy printing!

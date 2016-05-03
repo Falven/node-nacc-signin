@@ -2,8 +2,14 @@ extends ../layout/layout.jade
 
 include ../components/keypad-form.pug
 
-- h2 = "Administrative controls."
-
-append main
-  article#admin
-    +keypad('dashboard', 'post', 'Please enter the Administrative Pin #:')
+block header
+  header
+    h1.h1=title
+    h2.h2 Administrative controls.
+block section
+  section#admin
+    .wrapper
+      unless ERROR
+        +keypad-form('/admin/dashboard', 'post', 'Please enter the Administrative Pin #:')
+      else
+        +keypad-form('/admin/dashboard', 'post', 'An invalid pin was entered, please try again:')

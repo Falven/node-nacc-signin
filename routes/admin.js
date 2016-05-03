@@ -10,7 +10,7 @@ var router = module.exports = express.Router();
 router.get('/', getAdmin);
 
 function getAdmin(req, res, next) {
-    res.render('admin', {
+    res.render('pages/admin', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
@@ -22,7 +22,7 @@ router.post('/dashboard');
 router.get('/dashboard');
 
 function getDashboard(req, res, next) {
-    res.render('dashboard', {
+    res.render('pages/dashboard', {
         title: app.locals.title,
         description: app.locals.description,
         keywords: app.locals.keywords,
