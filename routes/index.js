@@ -134,18 +134,19 @@ function getConfirm(req, res, next) {
 
 function logSession(req, res, next) {
     app.openStudents(function() {
-        app.locals.worksheet.addRow(
-          {
-              date: new Date(),
-              studentID: req.session.studentID,
-              reason: req.session.reason,
-              peer: req.session.peer
-          }).commit();
-        app.locals.workbook.xlsx.writeFile(app.locals.workbookPath)
-          .then(function() {
-              console.log('success.');
-          }, function() {
-              console.log('failed.');
-          });
+      var last = app.locals.worksheet.lastRow;
+      app.locals.worksheet.addRow(
+        {
+            date: new Date(),
+            studentID: req.session.studentID,
+            reason: req.session.reason,
+            peer: req.session.peer
+        }).commit();
+      app.locals.workbook.xlsx.writeFile(app.locals.workbookPath)
+        .then(function() {
+            console.log('success.');
+        }, function() {
+            console.log('failed.');
+        });
     });
 }
