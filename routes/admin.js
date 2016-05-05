@@ -45,8 +45,6 @@ router.get('/', getAdmin);
 function getAdmin(req, res, next) {
     res.render('pages/admin', {
         title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined
     });
 }
@@ -77,8 +75,6 @@ function requirePin(req, res, next) {
 function getDashboard(req, res, next) {
     res.render('pages/dashboard', {
         title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined,
         tutors: app.locals.tutors,
         mentors: app.locals.mentors

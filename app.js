@@ -13,8 +13,6 @@ var index = require('./routes/index');
 var admin = require('./routes/admin');
 
 app.locals.title = 'NACC';
-app.locals.description = 'NACC Student Login Website.';
-app.locals.keywords = 'CSU, NACC, Tutoring, Mentoring';
 app.locals.workbookName = 'students.xlsx';
 app.locals.workbook = undefined;
 app.locals.workbookPath = path.join(__dirname, 'public', 'bin', app.locals.workbookName);

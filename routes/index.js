@@ -14,8 +14,6 @@ router.post('/', resetSession, getStudentID);
 function getStudentID(req, res, next) {
     res.render('pages/index', {
         title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined
     });
 }
@@ -51,8 +49,6 @@ function requireStudentID(req, res, next) {
 function getReason(req, res, next) {
     res.render('pages/reason', {
         title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined,
         studentID: req.session.studentID
     });
@@ -87,8 +83,6 @@ function getPeer(req, res, next) {
     var peers = peerType === 'tutor' ? app.locals.tutors : app.locals.mentors;
     res.render('pages/peers', {
         title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined,
         studentID: req.session.studentID,
         peerType: peerType,
@@ -130,8 +124,6 @@ function requirePeer(req, res, next) {
 function getConfirm(req, res, next) {
     res.render('pages/confirm', {
         title: app.locals.title,
-        description: app.locals.description,
-        keywords: app.locals.keywords,
         ERROR: req.query.error !== undefined,
         studentID: req.session.studentID,
         reason: req.session.reason,
