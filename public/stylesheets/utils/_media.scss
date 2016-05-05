@@ -34,28 +34,28 @@ $breakpoints: (
 }
 
 @include respond-min("tablet") {
-  #index {
+  #index, #admin {
     .wrapper {
       @include wrapper(40%);
-      @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 2px);
     }
   }
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 2px);
 }
 
 @include respond-min("laptop") {
-  #index {
+  #index, #admin {
     .wrapper {
       @include wrapper(40%);
-      @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 4px);
     }
   }
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 4px);
 }
 
 @include respond-min("desktop") {
-  #index {
+  #index, #admin {
     .wrapper {
       @include wrapper(55%);
-      @include keypad-form-dimensions($base-line-height, $base-line-height * 8, 6px);
     }
   }
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 8, 6px);
 }

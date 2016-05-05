@@ -337,20 +337,6 @@ footer ul li address {
   margin-bottom: 1.25rem;
 }
 
-#index .wrapper .keypad-form .display {
-  height: 1.25rem;
-  margin-bottom: 0px;
-}
-
-#index .wrapper .keypad-form .keys {
-  height: calc(15rem + 0px);
-}
-
-#index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
-  width: calc((100% / 3) - 0px);
-  height: 3.75rem;
-}
-
 #reason .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -415,72 +401,58 @@ footer ul li address {
   margin-bottom: 1.25rem;
 }
 
-#admin .wrapper .keypad-form .display {
-  height: 1.25rem;
-  margin-bottom: 0px;
-}
-
-#admin .wrapper .keypad-form .keys {
-  height: calc(15rem + 0px);
-}
-
-#admin .wrapper .keypad-form .keys .numeric, #admin .wrapper .keypad-form .keys .enter, #admin .wrapper .keypad-form .keys .reset {
-  width: calc((100% / 3) - 0px);
-  height: 3.75rem;
-}
-
 @media only screen and (min-width: 736px) {
-  #index .wrapper {
+  #index .wrapper, #admin .wrapper {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
   }
-  #index .wrapper .keypad-form .display {
+  .keypad-form .display {
     height: 1.25rem;
     margin-bottom: 4px;
   }
-  #index .wrapper .keypad-form .keys {
+  .keypad-form .keys {
     height: calc(20rem + 8px);
   }
-  #index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+  .keypad-form .keys .numeric, .keypad-form .keys .enter, .keypad-form .keys .reset {
     width: calc((100% / 3) - 2px);
     height: 5rem;
   }
 }
 
 @media only screen and (min-width: 1012px) {
-  #index .wrapper {
+  #index .wrapper, #admin .wrapper {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
   }
-  #index .wrapper .keypad-form .display {
+  .keypad-form .display {
     height: 1.25rem;
     margin-bottom: 8px;
   }
-  #index .wrapper .keypad-form .keys {
+  .keypad-form .keys {
     height: calc(20rem + 16px);
   }
-  #index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+  .keypad-form .keys .numeric, .keypad-form .keys .enter, .keypad-form .keys .reset {
     width: calc((100% / 3) - 4px);
     height: 5rem;
   }
 }
 
 @media only screen and (min-width: 1420px) {
-  #index .wrapper {
+  #index .wrapper, #admin .wrapper {
     width: 55%;
     margin-left: auto;
     margin-right: auto;
   }
-  #index .wrapper .keypad-form .display {
+  .keypad-form .display {
     height: 1.25rem;
     margin-bottom: 12px;
   }
-  #index .wrapper .keypad-form .keys {
+  .keypad-form .keys {
     height: calc(40rem + 24px);
   }
-  #index .wrapper .keypad-form .keys .numeric, #index .wrapper .keypad-form .keys .enter, #index .wrapper .keypad-form .keys .reset {
+  .keypad-form .keys .numeric, .keypad-form .keys .enter, .keypad-form .keys .reset {
     width: calc((100% / 3) - 6px);
     height: 10rem;
   }
