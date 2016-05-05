@@ -7,6 +7,11 @@ $keypad-form-cols: 3;
   height: 100%;
 }
 
+.keypad-form-label {
+  display: block;
+  margin-bottom: $base-line-height / 2;
+}
+
 .keypad-form-display {
   width: 100%;
   display: block;
@@ -20,10 +25,6 @@ $keypad-form-cols: 3;
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-}
-
-.keypad-form-label {
-  display: block;
 }
 
 @mixin keypad-form-dimensions($display-height, $key-height, $margin) {

@@ -160,6 +160,11 @@ body {
   height: 100%;
 }
 
+.keypad-form-label {
+  display: block;
+  margin-bottom: 0.625rem;
+}
+
 .keypad-form-display {
   width: 100%;
   display: block;
@@ -184,10 +189,6 @@ body {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-}
-
-.keypad-form-label {
-  display: block;
 }
 
 .keypad-form-display {
@@ -386,17 +387,17 @@ footer ul li address {
   height: 5rem;
 }
 
-#confirm .wrapper .confirmation {
-  width: 35%;
+#confirm .confirmation {
+  width: 50%;
   margin: 0 auto 1.25rem auto;
 }
 
-#confirm .wrapper .confirmation img {
+#confirm .confirmation img {
   width: 100%;
   vertical-align: middle;
 }
 
-#confirm .wrapper h2 {
+#confirm h2 {
   text-align: center;
   margin: 0 0 1.25rem 0;
 }
@@ -415,58 +416,57 @@ footer ul li address {
 
 @media only screen and (min-width: 736px) {
   #index .wrapper, #admin .wrapper {
-    width: 40%;
+    width: 45%;
     margin-left: auto;
     margin-right: auto;
+  }
+  #confirm .confirmation {
+    width: 35%;
   }
   .keypad-form-display {
     height: 1.25rem;
     margin-bottom: 4px;
   }
   .keypad-form-keys {
-    height: calc(15rem + 8px);
+    height: calc(20rem + 8px);
   }
   .keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
     width: calc((100% / 3) - 2px);
-    height: 3.75rem;
+    height: 5rem;
   }
 }
 
 @media only screen and (min-width: 1012px) {
-  #index .wrapper, #admin .wrapper {
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
+  #confirm .confirmation {
+    width: 30%;
   }
   .keypad-form-display {
     height: 1.25rem;
     margin-bottom: 8px;
   }
   .keypad-form-keys {
-    height: calc(20rem + 16px);
+    height: calc(30rem + 16px);
   }
   .keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
     width: calc((100% / 3) - 4px);
-    height: 5rem;
+    height: 7.5rem;
   }
 }
 
 @media only screen and (min-width: 1420px) {
-  #index .wrapper, #admin .wrapper {
-    width: 55%;
-    margin-left: auto;
-    margin-right: auto;
+  #confirm .confirmation {
+    width: 25%;
   }
   .keypad-form-display {
     height: 1.25rem;
     margin-bottom: 12px;
   }
   .keypad-form-keys {
-    height: calc(40rem + 24px);
+    height: calc(35rem + 24px);
   }
   .keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
     width: calc((100% / 3) - 6px);
-    height: 10rem;
+    height: 8.75rem;
   }
 }
 

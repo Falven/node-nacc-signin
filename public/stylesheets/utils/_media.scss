@@ -36,26 +36,31 @@ $breakpoints: (
 @include respond-min("tablet") {
   #index, #admin {
     .wrapper {
-      @include wrapper(40%);
+      @include wrapper(45%);
     }
   }
-  @include keypad-form-dimensions($base-line-height, $base-line-height * 3, 2px);
+  #confirm {
+    .confirmation {
+      width: 35%;
+    }
+  }
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 2px);
 }
 
 @include respond-min("laptop") {
-  #index, #admin {
-    .wrapper {
-      @include wrapper(40%);
+  #confirm {
+    .confirmation {
+      width: 30%;
     }
   }
-  @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 4px);
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 6, 4px);
 }
 
 @include respond-min("desktop") {
-  #index, #admin {
-    .wrapper {
-      @include wrapper(55%);
+  #confirm {
+    .confirmation {
+      width: 25%;
     }
   }
-  @include keypad-form-dimensions($base-line-height, $base-line-height * 8, 6px);
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 7, 6px);
 }

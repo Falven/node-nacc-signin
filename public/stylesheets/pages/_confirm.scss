@@ -1,18 +1,17 @@
 #confirm {
-  .wrapper {
-    .confirmation {
-      width: 35%;
-      margin: 0 auto $base-line-height auto;
 
-      img {
-        width: 100%;
-        vertical-align: middle;
-      }
-    }
-
-    h2 {
-      text-align: center;
-      margin: 0 0 $base-line-height 0;
+  .confirmation {
+    width: 50%;
+    margin: 0 auto $base-line-height auto;
+    img {
+      width: 100%;
+      vertical-align: middle;
     }
   }
+
+  h2 {
+    text-align: center;
+    margin: 0 0 $base-line-height 0;
+  }
+
 }
