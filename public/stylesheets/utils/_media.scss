@@ -39,7 +39,7 @@ $breakpoints: (
       @include wrapper(40%);
     }
   }
-  @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 2px);
+  @include keypad-form-dimensions($base-line-height, $base-line-height * 3, 2px);
 }
 
 @include respond-min("laptop") {
