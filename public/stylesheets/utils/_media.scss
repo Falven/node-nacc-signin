@@ -34,7 +34,7 @@ $breakpoints: (
 }
 
 @include respond-min("tablet") {
-  #index, #admin {
+  #index, #admin, #peers {
     .wrapper {
       @include wrapper(45%);
     }

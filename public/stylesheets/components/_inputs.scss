@@ -2,9 +2,8 @@ $input-font-size: $base-font-size;
 $input-font-weight: $regular;
 $input-padding: 0;
 $input-text-transform: capitalize;
-$input-border-width: 1px;
-$input-border-style: solid;
-$input-border-radius: 0;
+$input-border: 1px solid;
+$input-border-radius: $border-radius;
 
 %input-base {
   appearance: none;
@@ -14,8 +13,7 @@ $input-border-radius: 0;
   font-size: $input-font-size;
   font-weight: $input-font-weight;
   text-transform: $input-text-transform;
-  border-width: $input-border-width;
-  border-style: $input-border-style;
+  border-width: $input-border;
   border-radius: $input-border-radius;
 }
 
@@ -38,15 +36,15 @@ $input-border-radius: 0;
 }
 
 .button-input {
-  @extend .button;
   @extend %input-base;
+  @extend .button;
 }
 
 .text-input {
   @extend %input-base;
   @include text-input-base(
-    $text-color: $primary-color,
-    $border-color: $primary-color,
-    $background-color: $secondary-color
+    $text-color: $text-color-light,
+    $border-color: transparent,
+    $background-color: $primary-color
   );
 }

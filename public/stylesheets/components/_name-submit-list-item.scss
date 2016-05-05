@@ -1,12 +1,19 @@
 $button-padding: 0;
 $button-text-transform: capitalize;
-$name-item-color: $primary-color;
-$name-item-background-color: $secondary-color;
+$name-item-color: $text-color-light;
+$name-item-background-color: $tertiary-color;
+$name-item-border: none;
+$name-item-box-shadow: $box-shadow;
+$name-item-border-radius: $border-radius;
 
 .name-li {
   margin-bottom: $base-line-height;
   color: $name-item-color;
-  background-color: $name-item-background-color;
+  //background-color: $name-item-background-color;
+  background: $primary-gradient;
+  border: $name-item-border;
+  border-radius: $name-item-border-radius;
+  box-shadow: $name-item-box-shadow;
 }
 
 .name-list-figure {
@@ -15,6 +22,7 @@ $name-item-background-color: $secondary-color;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  margin-left: $base-line-height / 2;
 }
 
 .name-list-portrait {
@@ -33,6 +41,7 @@ $name-item-background-color: $secondary-color;
 
 .name-list-select {
   height: 75%;
+  margin-right: $base-line-height / 2;
 }
 
 @mixin name-submit-list-item-dimensions($height) {

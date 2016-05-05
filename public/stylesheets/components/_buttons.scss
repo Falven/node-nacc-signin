@@ -3,8 +3,7 @@ $button-font-size: $base-font-size;
 $button-font-weight: normal;
 $button-padding: 0;
 $button-text-transform: capitalize;
-$button-border-width: 2px;
-$button-border-style: solid;
+$button-border-radius: $border-radius;
 
 %button-base {
   display: $button-display;
@@ -12,46 +11,70 @@ $button-border-style: solid;
   font-size: $button-font-size;
   font-weight: $button-font-weight;
   text-transform: $button-text-transform;
-  border-width: $button-border-width;
-  border-style: $button-border-style;
+  border-radius: $button-border-radius;
 }
 
-@mixin button-theme($text-color, $border-color, $background-color) {
-  color: $text-color;
-  border-color: $border-color;
-  background-color: $background-color;
+@mixin button-theme(
+  $color: null,
+  $border: null,
+  $background: null,
+  $box-shadow: null) {
+
+  color: $color;
+  border: $border;
+  background: $background;
+  box-shadow: $box-shadow;
+
 }
 
-@mixin button-base(
+@mixin border-button(
   $text-color: null,
-  $border-color: null,
   $background-color: null,
-  $hover-text-color: null,
-  $hover-border-color: null,
-  $hover-background-color: null) {
+  $text-color-hover: null,
+  $background-color-hover: null) {
 
-  @include button-theme($text-color, $border-color, $background-color);
+  @include button-theme(
+      $color: $text-color,
+      $border: $text-color,
+      $background: $background-color
+  );
+
   &:hover {
-    @include button-theme($hover-text-color, $hover-border-color, $hover-background-color);
+    @include button-theme(
+        $color: $text-color-hover,
+        $border: $text-color,
+        $background: $background-color-hover
+    );
   }
 
 }
 
-@mixin invert-button($text-color, $text-color-hover) {
-  @include button-base($text-color, $text-color, transparent, $text-color-hover, $text-color, $text-color);
-}
+@mixin solid-button(
+  $text-color: null,
+  $background-color: null,
+  $text-color-hover: null,
+  $background-color-hover: null,
+  $box-shadow: null) {
 
-@mixin border-button($text-color, $background-color, $text-color-hover, $background-color-hover) {
+  @include button-theme(
+      $color: $text-color,
+      $border: none,
+      $background: $background-color,
+      $box-shadow: $box-shadow
+  );
 
-  @include button-theme($text-color, $text-color, $background-color);
   &:hover {
-    @include button-theme($text-color-hover, $text-color, $background-color-hover);
+    @include button-theme(
+        $color: $text-color-hover,
+        $border: none,
+        $background: $background-color-hover
+    );
   }
-
 }
 
 .button {
   @extend %button-base;
+  @include button-theme();
+  @include solid-button($text-color-light, $primary-color, $text-color-light, $secondary-color, $box-shadow);
   @include type-setting(0);
-  @include border-button($primary-color, $secondary-color, $secondary-color, $tertiary-color);
 }
