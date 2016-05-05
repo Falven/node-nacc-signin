@@ -18,12 +18,11 @@ $name-item-background-color: $secondary-color;
 }
 
 .name-list-portrait {
-  width: 25%;
+  margin-right: $base-line-height / 2;
   height: 100%;
   > img {
     text-align: center;
     // TODO vertically-center alt text.
-    width: 100%;
     height: 100%;
   }
 }
@@ -37,9 +36,7 @@ $name-item-background-color: $secondary-color;
 }
 
 @mixin name-submit-list-item-dimensions($height) {
-  .name-li {
-    figure {
-      height: $height;
-    }
+  .name-list-figure {
+    height: $height;
   }
 }

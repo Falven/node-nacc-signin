@@ -232,13 +232,12 @@ body {
 }
 
 .name-list-portrait {
-  width: 25%;
+  margin-right: 0.625rem;
   height: 100%;
 }
 
 .name-list-portrait > img {
   text-align: center;
-  width: 100%;
   height: 100%;
 }
 
@@ -383,7 +382,7 @@ footer ul li address {
   margin-bottom: 1.25rem;
 }
 
-#peers .wrapper .name-li figure {
+#peers .wrapper .name-list-figure {
   height: 5rem;
 }
 
