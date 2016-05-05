@@ -15,7 +15,7 @@ var NACC = {
   admin: {
     init: function(element) {
         new KeypadController(
-          document.getElementsByClassName('display'),
+          document.getElementsByClassName('keypad-form-display'),
           document.getElementsByClassName('numeric'),
           document.getElementsByClassName('reset'),
           4

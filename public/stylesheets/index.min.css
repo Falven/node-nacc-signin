@@ -89,7 +89,7 @@ body {
   font-weight: 400;
 }
 
-.p, .label {
+.p, .keypad-form-label {
   font-size: 0.7501875469rem;
   line-height: 1.25rem;
 }
@@ -160,18 +160,14 @@ body {
   height: 100%;
 }
 
-.keypad-form .label {
-  display: block;
-}
-
-.keypad-form .display {
+.keypad-form-display {
   width: 100%;
   display: block;
   text-align: left;
   padding-left: 5px;
 }
 
-.keypad-form .keys {
+.keypad-form-keys {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -190,13 +186,31 @@ body {
           flex-wrap: wrap;
 }
 
+.keypad-form-label {
+  display: block;
+}
+
+.keypad-form-display {
+  height: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.keypad-form-keys {
+  height: calc(15rem + 8px);
+}
+
+.keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
+  width: calc((100% / 3) - 2px);
+  height: 3.75rem;
+}
+
 .name-li {
   margin-bottom: 1.25rem;
   color: #222;
   background-color: #fff;
 }
 
-.name-li figure {
+.name-list-figure {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -217,24 +231,23 @@ body {
           flex-wrap: nowrap;
 }
 
-.name-li figure .portrait {
+.name-list-portrait {
   width: 25%;
   height: 100%;
 }
 
-.name-li figure .portrait img {
+.name-list-portrait > img {
   text-align: center;
   width: 100%;
   height: 100%;
 }
 
-.name-li figure .description {
+.name-list-description {
   width: 50%;
 }
 
-.name-li figure .select {
-  height: 100%;
-  width: 25%;
+.name-list-select {
+  height: 75%;
 }
 
 .editable-table {
@@ -366,7 +379,7 @@ footer ul li address {
 }
 
 #peers .wrapper {
-  width: 35%;
+  width: 85%;
   margin-bottom: 1.25rem;
 }
 
@@ -407,16 +420,16 @@ footer ul li address {
     margin-left: auto;
     margin-right: auto;
   }
-  .keypad-form .display {
+  .keypad-form-display {
     height: 1.25rem;
     margin-bottom: 4px;
   }
-  .keypad-form .keys {
-    height: calc(20rem + 8px);
+  .keypad-form-keys {
+    height: calc(15rem + 8px);
   }
-  .keypad-form .keys .numeric, .keypad-form .keys .enter, .keypad-form .keys .reset {
+  .keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
     width: calc((100% / 3) - 2px);
-    height: 5rem;
+    height: 3.75rem;
   }
 }
 
@@ -426,14 +439,14 @@ footer ul li address {
     margin-left: auto;
     margin-right: auto;
   }
-  .keypad-form .display {
+  .keypad-form-display {
     height: 1.25rem;
     margin-bottom: 8px;
   }
-  .keypad-form .keys {
+  .keypad-form-keys {
     height: calc(20rem + 16px);
   }
-  .keypad-form .keys .numeric, .keypad-form .keys .enter, .keypad-form .keys .reset {
+  .keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
     width: calc((100% / 3) - 4px);
     height: 5rem;
   }
@@ -445,14 +458,14 @@ footer ul li address {
     margin-left: auto;
     margin-right: auto;
   }
-  .keypad-form .display {
+  .keypad-form-display {
     height: 1.25rem;
     margin-bottom: 12px;
   }
-  .keypad-form .keys {
+  .keypad-form-keys {
     height: calc(40rem + 24px);
   }
-  .keypad-form .keys .numeric, .keypad-form .keys .enter, .keypad-form .keys .reset {
+  .keypad-form-keys .numeric, .keypad-form-keys .enter, .keypad-form-keys .reset {
     width: calc((100% / 3) - 6px);
     height: 10rem;
   }

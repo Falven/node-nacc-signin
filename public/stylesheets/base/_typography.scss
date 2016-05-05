@@ -119,6 +119,6 @@ body {
   font-weight: $regular;
 }
 
-.p, .label {
+.p, .keypad-form-label {
   @include type-setting(-1);
 }

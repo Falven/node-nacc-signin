@@ -1,11 +1,11 @@
 mixin keypad-form(action, method, instructions)
   form.keypad-form(action= action, method= method)
     unless ERROR
-      label(class="label")= instructions
+      label.keypad-form-label= instructions
     else
-      label(class="label error-text")= instructions
-    input.text-input.display(type="text" name="pin" value="" readonly)
-    .keys
+      label.keypad-form-label.error-text= instructions
+    input.text-input.keypad-form-display(type="text" name="pin" value="" readonly)
+    .keypad-form-keys
       each val, index in ['1', '2', '3', '4', '5', '6', '7', '8', '9' ]
         input.button-input.numeric(type="button", class="kp_" + index, value=val)
       input.button-input.reset.kp_9(type="button", value="Reset")

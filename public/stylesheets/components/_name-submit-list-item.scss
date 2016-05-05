@@ -7,38 +7,33 @@ $name-item-background-color: $secondary-color;
   margin-bottom: $base-line-height;
   color: $name-item-color;
   background-color: $name-item-background-color;
+}
 
-  figure {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+.name-list-figure {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
 
-    .portrait {
-      width: 25%;
-      height: 100%;
-      img {
-        text-align: center;
-        // TODO vertically-center alt text.
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .description {
-      width: 50%;
-      .name {
-      }
-      .description {
-      }
-    }
-
-    .select {
-      height: 100%;
-      width: 25%;
-    }
+.name-list-portrait {
+  width: 25%;
+  height: 100%;
+  > img {
+    text-align: center;
+    // TODO vertically-center alt text.
+    width: 100%;
+    height: 100%;
   }
+}
+
+.name-list-description {
+  width: 50%;
+}
+
+.name-list-select {
+  height: 75%;
 }
 
 @mixin name-submit-list-item-dimensions($height) {

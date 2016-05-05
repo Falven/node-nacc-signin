@@ -1,9 +1,9 @@
 mixin name-submit-list-item(imageSrc, name, description, buttonName)
   li.name-li
-    figure
-      .portrait
+    figure.name-list-figure
+      .name-list-portrait
         img(src=imageSrc, alt=name)
-      .description
-        figcaption.name=name
-        p.p.description=description
-      button.button.select(name=buttonName value=name type="submit") Select
+      .name-list-description
+        figcaption=name
+        p.p=description
+      button.button.name-list-select(name=buttonName value=name type="submit") Select
