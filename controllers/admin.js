@@ -48,8 +48,11 @@ function getDashboard(req, res, next) {
         title: app.locals.title,
         ERROR: req.query.error !== undefined,
         tutors: app.locals.tutors,
+        tutorsCols: app.locals.tutorsColumns,
         mentors: app.locals.mentors,
-        students: app.locals.students
+        mentorsCols: app.locals.mentorsColumns,
+        students: app.locals.students,
+        studentsCols: app.locals.studentsColumns,
     });
 }
 
@@ -61,7 +64,6 @@ function getTutors(req, res, next) {
 router.post('/dashboard/tutors', requirePin, setTutors);
 function setTutors(req, res, next) {
     app.locals.tutors = req.body;
-    app.locals.tutorsColumns = Object.keys(app.locals.tutors);
     json2csv({ data: app.locals.tutors, fields: app.locals.tutorsColumns }, function(err, csv) {
         if (err) {
             console.log(err);
@@ -83,7 +85,6 @@ function getMentors(req, res, next) {
 router.post('/dashboard/mentors', requirePin, setMentors);
 function setMentors(req, res, next) {
     app.locals.mentors = req.body;
-    app.locals.mentorsColumns = Object.keys(app.locals.mentors);
     json2csv({ data: app.locals.mentors, fields: app.locals.mentorsColumns }, function(err, csv) {
         if (err) {
             console.log(err);
@@ -105,7 +106,6 @@ function getStudents(req, res, next) {
 router.post('/dashboard/students', requirePin, setStudents);
 function setStudents(req, res, next) {
     app.locals.students = req.body;
-    app.locals.studentsColumns = Object.keys(app.locals.students);
     json2csv({ data: app.locals.students, fields: app.locals.studentsColumns }, function(err, csv) {
         if (err) {
             console.log(err);

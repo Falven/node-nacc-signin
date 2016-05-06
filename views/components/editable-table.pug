@@ -1,14 +1,11 @@
-mixin editable-table(tableId, tableCaption, tableRows, downloadAction, downloadMethod)
+mixin editable-table(tableId, tableCaption, tableCols, tableRows, downloadAction, downloadMethod)
   .editable-table-wrapper(id=tableId)
     table.editable-table
       caption.caption= tableCaption
       thead.thead
-        if tableRows
-          - var templateRow = tableRows[0];
-          if templateRow
-            - var templateKeys = Object.keys(templateRow)
-            each col in templateKeys
-              th.th= col
+        if tableCols
+          each val in tableCols
+            th.th= val
         th.th.add.td
           img(src="/media/add-dark.svg" alt="Add Row")
       tbody
@@ -20,14 +17,11 @@ mixin editable-table(tableId, tableCaption, tableRows, downloadAction, downloadM
             td.remove.td
               img(src="/media/remove-dark.svg" alt="Remove Row")
         tr.tr.clone
-          if tableRows
-            - var templateRow = tableRows[0];
-              if(templateRow)
-                - var templateKeys = Object.keys(templateRow)
-                each col in templateKeys
-                  td.td(contenteditable="true")
-                td.remove.td
-                  img(src="/media/remove-dark.svg" alt="Remove Row")
+          if tableCols
+            each val in tableCols
+              td.td(contenteditable="true")
+            td.remove.td
+              img(src="/media/remove-dark.svg" alt="Remove Row")
     .editable-table-buttons
       form(action=downloadAction, method=downloadMethod)
         button.download.button(type="submit") Download CSV

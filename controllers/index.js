@@ -1,6 +1,7 @@
 var app = require('../app');
 var express = require('express');
 var fs = require('fs');
+var json2csv = require('json2csv');
 
 var router = module.exports = express.Router();
 
@@ -133,15 +134,22 @@ function getConfirm(req, res, next) {
 }
 
 function logSession(req, res, next) {
-    var col0 = app.locals.studentsColumns[0];
-    var col1 = app.locals.studentsColumns[1];
-    var col2 = app.locals.studentsColumns[2];
-    var col3 = app.locals.studentsColumns[3];
-    app.locals.students.push({
-        col0: app.getDate(),
-        col1: req.session.studentID,
-        col2: req.session.reason,
-        col3: req.session.peer
+    var student = {};
+    student[app.locals.studentsColumns[0]] = app.getDate();
+    student[app.locals.studentsColumns[1]] = req.session.studentID;
+    student[app.locals.studentsColumns[2]] = req.session.reason;
+    student[app.locals.studentsColumns[3]] = req.session.peer;
+    app.locals.students.push(student);
+    json2csv({ data: student, fields: app.locals.studentsColumns }, function(err, csv) {
+        if (err) {
+            console.log(err);
+        } else {
+            fs.appendFile(app.locals.studentsPath, csv, function(err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+        }
     });
     next();
 }

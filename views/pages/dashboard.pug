@@ -10,6 +10,6 @@ block header
 block section
   section#dashboard
     .wrapper
-      +editable-table("tutors-table", "Tutors", tutors, "/admin/dashboard/tutors", "GET")
-      +editable-table("mentors-table", "Mentors", mentors, "/admin/dashboard/mentors", "GET")
-      +editable-table("students-table", "Students", students, "/admin/dashboard/students", "GET")
+      +editable-table("tutors-table", "Tutors", tutorsCols, tutors, "/admin/dashboard/tutors", "GET")
+      +editable-table("mentors-table", "Mentors", mentorsCols, mentors, "/admin/dashboard/mentors", "GET")
+      +editable-table("students-table", "Students", studentsCols, students, "/admin/dashboard/students", "GET")
