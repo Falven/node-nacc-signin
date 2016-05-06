@@ -34,15 +34,8 @@ $breakpoints: (
 }
 
 @include respond-min("tablet") {
-  #index, #admin, #peers {
-    .wrapper {
-      @include wrapper(45%);
-    }
-  }
-  #confirm {
-    .confirmation {
-      width: 35%;
-    }
+  .wrapper {
+    width: 45%;
   }
   @include keypad-form-dimensions($base-line-height, $base-line-height * 4, 2px);
 }
@@ -50,17 +43,12 @@ $breakpoints: (
 @include respond-min("laptop") {
   #confirm {
     .confirmation {
-      width: 30%;
+      width: 35%;
     }
   }
   @include keypad-form-dimensions($base-line-height, $base-line-height * 6, 4px);
 }
 
 @include respond-min("desktop") {
-  #confirm {
-    .confirmation {
-      width: 25%;
-    }
-  }
   @include keypad-form-dimensions($base-line-height, $base-line-height * 7, 6px);
 }

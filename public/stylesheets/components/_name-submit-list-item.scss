@@ -9,7 +9,6 @@ $name-item-border-radius: $border-radius;
 .name-li {
   margin-bottom: $base-line-height;
   color: $name-item-color;
-  //background-color: $name-item-background-color;
   background: $primary-gradient;
   border: $name-item-border;
   border-radius: $name-item-border-radius;
@@ -42,6 +41,7 @@ $name-item-border-radius: $border-radius;
 .name-list-select {
   height: 75%;
   margin-right: $base-line-height / 2;
+  padding: $base-line-height / 2 $base-line-height;
 }
 
 @mixin name-submit-list-item-dimensions($height) {

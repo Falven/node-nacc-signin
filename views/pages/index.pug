@@ -3,9 +3,13 @@ extends ../layout/layout.jade
 include ../components/keypad-form.pug
 
 block header
-  header
-    h1.h1=title
-    h2.h2 Welcome to the Tutoring Center.
+  header.title-header
+    .wrapper
+      .header-text
+        h1.h1=title
+        h2.h2 Welcome to the Tutoring Center.
+      figure.csu-logo
+        img(src="media/csu-logo.svg" alt="The CSU Logo.")
 block section
   section#index
     .wrapper

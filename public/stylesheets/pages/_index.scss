@@ -3,3 +3,25 @@
     margin-bottom: $base-line-height;
   }
 }
+
+.title-header {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+
+.header-text {
+  width: 50%;
+  text-align: left;
+}
+
+.csu-logo {
+  width: 50%;
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -3,9 +3,10 @@ extends ../layout/layout.jade
 include ../components/keypad-form.pug
 
 block header
-  header
-    h1.h1=title
-    h2.h2 Administrative controls.
+  header.admin-header
+    .wrapper
+      h1.h1=title
+      h2.h2 Administrative controls. Be careful in here!
 block section
   section#admin
     .wrapper

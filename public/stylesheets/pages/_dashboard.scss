@@ -1,6 +1,8 @@
-.wrapper {
-  margin-bottom: $base-line-height;
-  .button {
-    padding: $base-line-height / 2 $base-line-height;
+#dashboard {
+  .wrapper {
+    margin-bottom: $base-line-height;
+    .button {
+      padding: $base-line-height / 2 $base-line-height;
+    }
   }
 }
