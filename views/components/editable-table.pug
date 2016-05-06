@@ -1,27 +1,35 @@
-mixin editable-table(tableId, tableCaption, tableItems)
-  table.editable-table(id=tableId)
-    caption.caption= tableCaption
-    thead.thead
-      th.th Name
-      th.th Description
-      th.th.add.td
-        img(src="/media/add-dark.svg" alt="Add Row")
-    tbody
-      each row in tableItems
-        tr.tr
-          td.td(contenteditable="true")= row.name
-          td.td(contenteditable="true")= row.description
-          td.remove.td
-            img(src="/media/remove-dark.svg" alt="Remove Row")
-      tr.tr.clone
-        td.td(contenteditable="true")
-        td.td(contenteditable="true")
-        td.remove.td
-          img(src="/media/remove-dark.svg" alt="Remove Row")
-    tfoot
-      tr
-        td.td
-        td.td
-          p.information
-        td.save.td
-          button.button(type="button") Save
+mixin editable-table(tableId, tableCaption, tableRows, downloadAction, downloadMethod)
+  .editable-table-wrapper(id=tableId)
+    table.editable-table
+      caption.caption= tableCaption
+      thead.thead
+        if tableRows
+          - var templateRow = tableRows[0];
+          if templateRow
+            - var templateKeys = Object.keys(templateRow)
+            each col in templateKeys
+              th.th= col
+        th.th.add.td
+          img(src="/media/add-dark.svg" alt="Add Row")
+      tbody
+        each value, key in tableRows
+          tr.tr
+            - var keys = Object.keys(value)
+            - for (var i = 0; i < keys.length; ++i)
+              td.td(contenteditable="true")= value[keys[i]]
+            td.remove.td
+              img(src="/media/remove-dark.svg" alt="Remove Row")
+        tr.tr.clone
+          if tableRows
+            - var templateRow = tableRows[0];
+              if(templateRow)
+                - var templateKeys = Object.keys(templateRow)
+                each col in templateKeys
+                  td.td(contenteditable="true")
+                td.remove.td
+                  img(src="/media/remove-dark.svg" alt="Remove Row")
+    .editable-table-buttons
+      form(action=downloadAction, method=downloadMethod)
+        button.download.button(type="submit") Download CSV
+      button.save.button(type="submit") Save Changes
+      button.clear.button(type="submit") Clear Rows

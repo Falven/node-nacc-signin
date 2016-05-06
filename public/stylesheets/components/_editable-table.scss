@@ -27,22 +27,31 @@
 
   .th, .td {
     vertical-align: middle;
-    padding: $base-line-height / 2;
+    padding: $base-line-height / 4;
   }
 
   .add, .remove {
     cursor: pointer;
   }
 
-  .add, .remove, .save {
+  .add, .remove {
     text-align: center;
   }
 
   .clone {
     display: none !important;
   }
+}
 
-  .save {
+.editable-table-buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: $base-line-height * 2;
+
+  .save, .clear, .download {
     .button {
       padding: $base-line-height / 2 $base-line-height;
     }

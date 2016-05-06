@@ -6,46 +6,48 @@ $name-item-border: none;
 $name-item-box-shadow: $box-shadow;
 $name-item-border-radius: $border-radius;
 
-.name-li {
-  margin-bottom: $base-line-height;
-  color: $name-item-color;
-  background: $primary-gradient;
-  border: $name-item-border;
-  border-radius: $name-item-border-radius;
-  box-shadow: $name-item-box-shadow;
-}
+.name-submit-list {
+  .name-li {
+    margin-bottom: $base-line-height;
+    color: $name-item-color;
+    background: $primary-gradient;
+    border: $name-item-border;
+    border-radius: $name-item-border-radius;
+    box-shadow: $name-item-box-shadow;
+  }
 
-.name-list-figure {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin-left: $base-line-height / 2;
-}
+  .name-list-figure {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-left: $base-line-height / 2;
+  }
 
-.name-list-portrait {
-  margin-right: $base-line-height / 2;
-  height: 100%;
-  > img {
-    text-align: center;
-    // TODO vertically-center alt text.
+  .name-list-portrait {
+    margin-right: $base-line-height / 2;
     height: 100%;
+    > img {
+      text-align: center;
+      // TODO vertically-center alt text.
+      height: 100%;
+    }
+  }
+
+  .name-list-description {
+    width: 50%;
+  }
+
+  .name-list-select {
+    height: 75%;
+    margin-right: $base-line-height / 2;
+    padding: $base-line-height / 2 $base-line-height;
   }
 }
 
-.name-list-description {
-  width: 50%;
-}
-
-.name-list-select {
-  height: 75%;
-  margin-right: $base-line-height / 2;
-  padding: $base-line-height / 2 $base-line-height;
-}
-
-@mixin name-submit-list-item-dimensions($height) {
+@mixin name-submit-list-item-dimensions($min-height) {
   .name-list-figure {
-    height: $height;
+    min-height: $min-height;
   }
 }

@@ -1,8 +1,7 @@
-function EditableTableController(tableId, postUrl, success, failure) {
+function EditableTableController(tableId, url, saveSuccess, saveFailure) {
   var table = $(tableId);
   var thead = table.find('thead');
   var tbody = table.find('tbody');
-  var information = table.find('.information');
 
   table.find('.add').click(function() {
     var clone = table.find('.clone').clone(true).removeClass('clone');
@@ -22,26 +21,27 @@ function EditableTableController(tableId, postUrl, success, failure) {
       var i = 0;
       var peer = {};
       headers.each(function() {
-        peer[$(this).text().toLowerCase()] = cells[i++].innerHTML;
+        peer[$(this).text()] = cells[i++].innerHTML;
       });
       peers.push(peer);
     });
-    var jstring =  JSON.stringify(peers);
     $.ajax({
       type: "POST",
-      url: postUrl,
-      data: jstring,
+      url: url,
+      data: JSON.stringify(peers),
       contentType: 'application/json',
       success: function(data) {
-        information.addClass('success-text');
-        information.removeClass('error-text');
-        information.text(success);
+        window.alert(saveSuccess);
       },
       failure: function(errMsg) {
-        information.addClass('error-text');
-        information.removeClass('success-text');
-        information.text(failure + "<br>" + errMsg);
+        window.alert(saveFailure);
       }
     });
+  });
+
+  table.find('.clear').click(function() {
+    var clone = table.find('.clone').clone(true);
+    $(tbody).empty();
+    tbody.append(clone);
   });
 }

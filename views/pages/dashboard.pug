@@ -3,13 +3,13 @@ extends ../layout/layout.jade
 include ../components/editable-table.pug
 
 block header
-  header
-    h1.h1=title
-    h2.h2 Administrative Dashboard.
+  header.dashboard-header
+    .wrapper
+      h1.h1=title
+      h2.h2 Administrative Dashboard.
 block section
   section#dashboard
     .wrapper
-      +editable-table("tutors-table", "Tutors", tutors)
-      +editable-table("mentors-table", "Mentors", mentors)
-      form(method="get" action="/admin/dashboard/students")
-        button.button(type="submit") Download Excel...
+      +editable-table("tutors-table", "Tutors", tutors, "/admin/dashboard/tutors", "GET")
+      +editable-table("mentors-table", "Mentors", mentors, "/admin/dashboard/mentors", "GET")
+      +editable-table("students-table", "Students", students, "/admin/dashboard/students", "GET")

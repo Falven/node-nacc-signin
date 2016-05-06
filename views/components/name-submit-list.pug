@@ -1,0 +1,15 @@
+mixin name-submit-list(action, method, people, buttonName)
+  ul.name-submit-list
+    form(action=action, method=method)
+      each value, key in people
+        - var keys = Object.keys(value);
+        - var name = value[keys[0]];
+        - var description = value[keys[1]];
+        li.name-li
+          figure.name-list-figure
+            .name-list-portrait
+              img(src="/media/account-light.svg", alt=value)
+            .name-list-description
+              figcaption=name
+              p.p=description
+            button.button.name-list-select(name=buttonName value=name type="submit") Select

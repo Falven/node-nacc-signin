@@ -1,9 +1,15 @@
 #dashboard {
   .wrapper {
     width: 85%;
-    margin-bottom: $base-line-height;
     .button {
       padding: $base-line-height / 2 $base-line-height;
     }
   }
+}
+
+.dashboard-header {
+  .wrapper {
+    width: 85%;
+  }
+  text-align: left;
 }

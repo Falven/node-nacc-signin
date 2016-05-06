@@ -1,6 +1,6 @@
 extends ../layout/layout.jade
 
-include ../components/name-submit-list-item.pug
+include ../components/name-submit-list.pug
 
 block header
   header
@@ -12,7 +12,4 @@ block header
 block section
   section#peers
     .wrapper
-      ul
-        form(action="/reason/peers/confirm", method="post")
-          each peer in peers
-            +name-submit-list-item("/media/account-light.svg", peer.name, peer.description, "peer")
+      +name-submit-list("/reason/peers/confirm", "post", peers, "peer")

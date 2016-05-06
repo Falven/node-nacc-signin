@@ -1,5 +1,6 @@
 var app = require('../app');
 var express = require('express');
+var fs = require('fs');
 
 var router = module.exports = express.Router();
 
@@ -90,8 +91,8 @@ function getPeer(req, res, next) {
     });
 }
 
-router.post('/reason/peers/confirm', setPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, getConfirm, logSession);
-router.get('/reason/peers/confirm', requireStudentID, requireReason, requirePeer, getConfirm, logSession);
+router.post('/reason/peers/confirm', setPrintingReason, setPeer, requireStudentID, requireReason, requirePeer, logSession, getConfirm);
+router.get('/reason/peers/confirm', requireStudentID, requireReason, requirePeer, logSession, getConfirm);
 
 function isValidPeer(peer) {
     return peer && true;
@@ -129,24 +130,18 @@ function getConfirm(req, res, next) {
         reason: req.session.reason,
         peer: req.session.peer
     });
-    next();
 }
 
 function logSession(req, res, next) {
-    app.openStudents(function() {
-      var last = app.locals.worksheet.lastRow;
-      app.locals.worksheet.addRow(
-        {
-            date: new Date(),
-            studentID: req.session.studentID,
-            reason: req.session.reason,
-            peer: req.session.peer
-        }).commit();
-      app.locals.workbook.xlsx.writeFile(app.locals.workbookPath)
-        .then(function() {
-            console.log('success.');
-        }, function() {
-            console.log('failed.');
-        });
+    var col0 = app.locals.studentsColumns[0];
+    var col1 = app.locals.studentsColumns[1];
+    var col2 = app.locals.studentsColumns[2];
+    var col3 = app.locals.studentsColumns[3];
+    app.locals.students.push({
+        col0: app.getDate(),
+        col1: req.session.studentID,
+        col2: req.session.reason,
+        col3: req.session.peer
     });
+    next();
 }

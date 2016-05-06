@@ -28,14 +28,20 @@ var NACC = {
         new EditableTableController(
           '#tutors-table',
           '/admin/dashboard/tutors',
-          'Tutors sucessfully updated!',
-          'Failed to update Tutors.'
+          'Succesfully saved your Tutor changes!',
+          'There was a problem saving your Tutor changes :('
         );
         new EditableTableController(
           '#mentors-table',
           '/admin/dashboard/mentors',
-          'Mentors sucessfully updated!',
-          'Failed to update Mentors.'
+          'Succesfully saved your Mentor changes!',
+          'There was a problem saving your Mentor changes :('
+        );
+        new EditableTableController(
+          '#students-table',
+          '/admin/dashboard/students',
+          'Succesfully saved your Student changes!',
+          'There was a problem saving your Student changes :('
         );
       }
     }
