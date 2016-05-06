@@ -2,9 +2,14 @@
 
   .confirmation {
     width: 50%;
+    border-radius: 50%;
+    box-shadow: $box-shadow;
     margin: 0 auto $base-line-height auto;
+    background-color: $primary-color;
+    padding: $base-line-height * 3;
     img {
       width: 100%;
+      text-align: center;
       vertical-align: middle;
     }
   }

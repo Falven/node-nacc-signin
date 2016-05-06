@@ -4,6 +4,7 @@ $text-color-light: #eee;
 $primary-color: #27ae60;
 $secondary-color: #229856;
 $tertiary-color: #16a085;
+$background-color: #f1f0ef;
 $error-color: #d33526;
 $success-color: #27ae60;
 
@@ -12,6 +13,7 @@ $primary-gradient: linear-gradient(to left, $tertiary-color, $primary-color);
 
 body {
   color: $text-color-dark;
+  background-color: $background-color;
 }
 
 .error-text {

@@ -13,7 +13,7 @@ $fixed-font-family: monospace;
 $fixed-font-size: 85%;
 
 // Headings
-$heading-font-family: 'Open Sans', $base-font-family;
+$heading-font-family: Coda, $base-font-family;
 $heading-font-weight: $bold;
 
 // The base times power of the ratio. e.g. 1rem * 1.618 = 1.618rem
@@ -102,8 +102,12 @@ body {
   @include type-setting(0);
 }
 
+.h1, .h2, .h3, .h4 {
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+}
+
 .h1 {
-  font-family: 'Montserrat', sans-serif;
   @include type-setting(2);
   text-transform: uppercase;
   letter-spacing: 1px;
