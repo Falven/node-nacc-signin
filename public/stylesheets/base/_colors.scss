@@ -4,9 +4,14 @@ $text-color-light: #fff;
 $primary-color: #27ae60;
 $secondary-color: #00582A; //#229856
 $tertiary-color: #16a085;
+$subtle_color: lighten( $primary-color, 40% );
 $background-color: #f1f0ef;
+$warning-color: #e47512;
+$secondary-warning-color: #c46511;
 $error-color: #d33526;
 $success-color: #27ae60;
+$table-border-color: #ccc;
+$table-background-color: #dddddd;
 
 $primary-gradient: linear-gradient(to left, $tertiary-color, $primary-color);
 

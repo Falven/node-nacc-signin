@@ -2,7 +2,6 @@ $input-font-size: $base-font-size;
 $input-font-weight: $regular;
 $input-padding: 0;
 $input-text-transform: capitalize;
-$input-border: 1px solid;
 $input-border-radius: $border-radius;
 
 %input-base {
@@ -13,26 +12,28 @@ $input-border-radius: $border-radius;
   font-size: $input-font-size;
   font-weight: $input-font-weight;
   text-transform: $input-text-transform;
-  border-width: $input-border;
   border-radius: $input-border-radius;
 }
 
 @mixin input-theme(
-  $text-color: null,
-  $border-color: null,
-  $background-color: null) {
+  $color: null,
+  $border: null,
+  $background: null,
+  $box-shadow: null) {
 
-  color: $text-color;
-  border-color: $border-color;
-  background-color: $background-color;
+  color: $color;
+  border: $border;
+  background: $background;
+  box-shadow: $box-shadow;
 }
 
 @mixin text-input-base(
-  $text-color: null,
-  $border-color: null,
-  $background-color: null) {
+  $color: null,
+  $border: null,
+  $background: null,
+  $box-shadow: null) {
 
-  @include input-theme($text-color, $border-color, $background-color);
+  @include input-theme($color: $color, $border: $border, $background: $background, $box-shadow: $box-shadow);
 }
 
 .button-input {
@@ -43,8 +44,9 @@ $input-border-radius: $border-radius;
 .text-input {
   @extend %input-base;
   @include text-input-base(
-    $text-color: $text-color-light,
-    $border-color: transparent,
-    $background-color: $primary-color
+    $color: $text-color-light,
+    $background: $primary-color,
+    $border: none,
+    $box-shadow: $box-shadow
   );
 }

@@ -2,6 +2,17 @@
   .wrapper {
     margin-bottom: $base-line-height;
   }
+
+  .text-input {
+    @include text-input-base($background: $warning-color);
+  }
+}
+
+#admin .button-input {
+  @include solid-button(
+      $background-color: $warning-color,
+      $background-color-hover: $secondary-warning-color
+  );
 }
 
 .admin-header {

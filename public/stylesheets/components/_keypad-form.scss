@@ -43,4 +43,8 @@ $keypad-form-cols: 3;
   }
 }
 
+@mixin keypad-form-theme {
+
+}
+
 @include keypad-form-dimensions($base-line-height, $base-line-height * 3, 2px);

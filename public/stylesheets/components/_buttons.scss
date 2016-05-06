@@ -74,7 +74,12 @@ $button-border-radius: $border-radius;
 
 .button {
   @extend %button-base;
-  @include button-theme();
-  @include solid-button($text-color-light, $primary-color, $text-color-light, $secondary-color, $box-shadow);
+  @include solid-button(
+      $text-color: $text-color-light,
+      $background-color: $primary-color,
+      $text-color-hover: $text-color-light,
+      $background-color-hover: $secondary-color,
+      $box-shadow: $box-shadow
+  );
   @include type-setting(0);
 }

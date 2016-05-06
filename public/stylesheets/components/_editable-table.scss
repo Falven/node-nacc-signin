@@ -1,7 +1,7 @@
 .editable-table {
   width: 100%;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid $table-border-color;
   margin-bottom: $base-line-height;
 
   .caption, .th {
@@ -14,15 +14,15 @@
   }
 
   .tr:nth-child(odd) {
-    background-color: #f1f1f1;
+    background-color: $table-background-color;
   }
 
   .th, .tr {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $table-border-color;
   }
 
   .th:not(:last-child), .td:not(:last-child) {
-    border-right: 1px solid #ddd;
+    border-right: 1px solid $table-border-color;
   }
 
   .th, .td {
