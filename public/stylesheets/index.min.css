@@ -384,7 +384,11 @@ footer ul li address {
   margin-bottom: 1.25rem;
 }
 
-.title-header .wrapper {
+.title-header {
+  text-align: left;
+}
+
+.title-header .main-header {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -397,21 +401,20 @@ footer ul li address {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
-.header-text {
-  width: 50%;
-  text-align: left;
-}
-
-.csu-logo {
+.title-header .main-header .h1 {
   width: 50%;
 }
 
-.csu-logo > img {
+.title-header .main-header .csu-logo {
+  width: 50%;
+}
+
+.title-header .main-header .csu-logo > img {
   width: 100%;
   height: 100%;
 }
