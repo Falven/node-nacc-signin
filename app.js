@@ -14,6 +14,7 @@ var admin = require('./controllers/admin');
 
 app.locals.title = 'NACC';
 
+app.locals.students = [];
 app.locals.studentsPath = path.join(__dirname, 'public', 'csv', 'students.csv');
 app.locals.studentsColumns = [
   'Date',
@@ -22,12 +23,14 @@ app.locals.studentsColumns = [
   'Peer Seen'
 ];
 
+app.locals.tutors = [];
 app.locals.tutorsPath = path.join(__dirname, 'public', 'csv', 'tutors.csv');
 app.locals.tutorsColumns = [
   'Tutor',
   'Description'
 ];
 
+app.locals.mentors = [];
 app.locals.mentorsPath = path.join(__dirname, 'public', 'csv', 'mentors.csv');
 app.locals.mentorsColumns = [
   'Mentor',
@@ -94,21 +97,21 @@ function init() {
     var Converter = require("csvtojson").Converter;
     var converter = new Converter({});
     converter.fromFile(app.locals.studentsPath, function(err, result) {
-      app.locals.students = result
+      app.locals.students = result;
       if(app.locals.students && app.locals.students.length > 0) {
         app.locals.studentsColumns = Object.keys(app.locals.students[0]);
       }
     });
     converter = new Converter({});
     converter.fromFile(app.locals.tutorsPath, function(err, result) {
-      app.locals.tutors = result
+      app.locals.tutors = result;
       if(app.locals.tutors && app.locals.tutors.length > 0) {
         app.locals.tutorsColumns = Object.keys(app.locals.tutors[0]);
       }
     });
     converter = new Converter({});
     converter.fromFile(app.locals.mentorsPath, function(err, result) {
-      app.locals.mentors = result
+      app.locals.mentors = result;
       if(app.locals.mentors && app.locals.mentors.length > 0) {
         app.locals.mentorsColumns = Object.keys(app.locals.mentors[0]);
       }
