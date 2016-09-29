@@ -55,7 +55,8 @@ module.exports = function (grunt) {
           browser: true,
           globals: {
             jQuery: true
-          }
+          },
+          reporterOutput: ""
         },
         src: [ 'Gruntfile.js', 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ]
       }
@@ -126,7 +127,7 @@ module.exports = function (grunt) {
         tasks: [ 'sass:dev', 'postcss:dev' ]
       },
       js: {
-        files: [ 'Gruntfile.js', 'public/javascripts/**/*.js', '!public/javascripts/**/*.min.js' ],
+        files: [ 'Gruntfile.js', 'public/javascripts/*.js', '!public/javascripts/*.min.js' ],
         tasks: [ 'jshint:dev', 'clean:dist', 'concat:dist', 'uglify:dev' ]
       },
       livereload: {
